@@ -7,14 +7,17 @@ type Props = {
 
 const layout = (props: Props) => {
   return (
-    <div className="">
-      <div>
-        <Sidebar />
-      </div>
-      <main className="">
+<div>
+<div id="header">Header Code goes here</div>
+<div id="main-wrap">
+  <div id="sidebar"><Sidebar /></div>
+  <div id="content-wrap">
+  <main className="">
         {props.children}
       </main>
-    </div>
+  </div>
+</div>
+</div>
   )
 }
 
