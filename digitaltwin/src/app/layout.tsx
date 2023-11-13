@@ -1,5 +1,6 @@
 import Sidebar from "@/components/sidebar";
 import { ReactNode } from "react";
+import Header from "@/components/header";
 
 type Props = {
   children: ReactNode
@@ -8,7 +9,7 @@ type Props = {
 const layout = (props: Props) => {
   return (
 <div>
-<div id="header">Header Code goes here</div>
+<div id="header"><Header /></div>
 <div id="main-wrap">
   <div id="sidebar"><Sidebar /></div>
   <div id="content-wrap">
