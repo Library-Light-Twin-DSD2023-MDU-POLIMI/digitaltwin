@@ -1,9 +1,15 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+
+import { Button } from '@nextui-org/button'
+import { Card, CardBody } from '@nextui-org/card'
 
 
 export default function Home() {
   return (
-    <h1>Dashboard</h1>
+    <section className='py-36'>
+      <div className='container flex items-center justify-center'>
+        Here comes the dashboard
+      </div>
+    </section>
   )
 }
