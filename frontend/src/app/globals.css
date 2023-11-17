@@ -14,10 +14,11 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} 
 
-body {
-  background-color: white;
+body{
+    background-color: white;
+    min-height: 100vh;
 }
 
 #sidebar {
