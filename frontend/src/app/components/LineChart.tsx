@@ -25,7 +25,7 @@ import { formatDateTimestamp, formatDatestamp } from '../../utils/timeFormat';
 export default function LineChart(){  //will rewrite to include params later
   return (
     <div className='text-sky-500 w-full'>
-      From {formatDatestamp(data[0].timestamp)} to {formatDatestamp(data[data.length-1].timestamp)} 
+      Maintained Average Illuminance from {formatDatestamp(data[0].timestamp)} to {formatDatestamp(data[data.length-1].timestamp)} 
 
       <div>
         <Line 
