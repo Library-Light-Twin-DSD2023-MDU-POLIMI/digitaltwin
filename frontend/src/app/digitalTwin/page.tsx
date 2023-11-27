@@ -5,7 +5,7 @@ import { Card, CardHeader, CardBody, Button, ButtonGroup, Tooltip } from "@nextu
 import { Cog6ToothIcon, AdjustmentsHorizontalIcon, TrashIcon, FlagIcon, ClockIcon, CalendarDaysIcon, CalendarIcon, WrenchScrewdriverIcon, ArrowTopRightOnSquareIcon,QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import { Chip } from "@nextui-org/react";
 
-export default function digitalTwin() {
+export default function DigitalTwin() {
     return <div>
         <div id="container_name_options" className="py-4 px-2">
             <Card >
