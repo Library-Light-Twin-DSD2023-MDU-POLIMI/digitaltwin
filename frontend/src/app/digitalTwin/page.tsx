@@ -1,14 +1,34 @@
 'use client'
 
 import React from "react";
-import { Card, CardHeader, CardBody, Button, ButtonGroup, Tooltip } from "@nextui-org/react";
-import { Cog6ToothIcon, AdjustmentsHorizontalIcon, TrashIcon, FlagIcon, ClockIcon, CalendarDaysIcon, CalendarIcon, WrenchScrewdriverIcon, ArrowTopRightOnSquareIcon,QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import { 
+    Card, 
+    CardHeader, 
+    CardBody, 
+    Button, 
+    ButtonGroup, 
+    Tooltip 
+} from "@nextui-org/react";
+import { 
+    Cog6ToothIcon, 
+    AdjustmentsHorizontalIcon, 
+    TrashIcon, 
+    FlagIcon, 
+    ClockIcon, 
+    CalendarDaysIcon, 
+    CalendarIcon, 
+    WrenchScrewdriverIcon, 
+    ArrowTopRightOnSquareIcon
+} from '@heroicons/react/24/outline';
 import { Chip } from "@nextui-org/react";
+import LineChart from "../components/LineChart";
+import sampleData from '../../utils/sampleData.json';
+
 
 export default function DigitalTwin() {
     return <div>
         <div id="container_name_options" className="py-4 px-2">
-            <Card >
+            <Card>
                 <CardHeader className="flex justify-between items-center bg-cyan-950">
                     <div className="flex flex-col">
                         <p className="text-md text-2xl" id="digital_twin_name">Childrens' Area - Low Table</p>
@@ -71,7 +91,7 @@ export default function DigitalTwin() {
             </div>
             <div>
                 <Card className="bg-cyan-950 " >
-                    <div className="flex px-2 py-2 gap-2">
+                    <div className="flex px-2 py-2 gap-2 w-5/6">
                         <div className="m-auto">
                             <p className="text-sm"> Latest Values</p>
                         </div>
@@ -189,48 +209,6 @@ export default function DigitalTwin() {
                             </CardBody>
                         </Card>
                         </div>
-                        {/* <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="success" variant="dot" >
-                                            Color Prefer
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div> */}
-                        {/* <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="success" variant="dot" >
-                                            Photo Safety
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div> */}
                     </div>
                 </Card>
             </div>
@@ -275,10 +253,15 @@ export default function DigitalTwin() {
                             </CardBody>
                         </Card>
                     </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                    <div className="w-5/6 px-2 flex flex-col gap-[1vh]">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="illuminance" metricKey="maintainedAverage"></LineChart>
+                            </CardBody>
+                        </Card>
+                        <Card className="bg-cyan-900">
+                            <CardBody>
+                                <LineChart data={sampleData} categoryKey="illuminance" metricKey="uniformityRatio"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -306,9 +289,9 @@ export default function DigitalTwin() {
                         </Card>
                     </div>
                     <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="glare" metricKey="UGR"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -336,9 +319,9 @@ export default function DigitalTwin() {
                         </Card>
                     </div>
                     <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -365,10 +348,15 @@ export default function DigitalTwin() {
                             
                         </Card>
                     </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                    <div className="w-5/6 px-2 flex flex-col gap-[1vh]">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
+                            </CardBody>
+                        </Card>
+                        <Card className="bg-cyan-900">
+                            <CardBody>
+                                <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -396,9 +384,9 @@ export default function DigitalTwin() {
                         </Card>
                     </div>
                     <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="flicker" metricKey="SVM"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -409,7 +397,7 @@ export default function DigitalTwin() {
                         <Card className="flex h-32 bg-cyan-950">
                             <CardHeader >
                                 <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                    Color Pref
+                                    Color Preference
                                 </Chip>
                             </CardHeader>
                             <CardBody className="items-center flex grid-cols-2">
@@ -426,9 +414,9 @@ export default function DigitalTwin() {
                         </Card>
                     </div>
                     <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="colorPreference" metricKey="PVF"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -445,7 +433,7 @@ export default function DigitalTwin() {
                             <CardBody className="items-center flex grid-cols-2">
                                 <div className="flex grid-cols-2">
                                     <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
+                                        <Chip color="default" variant="light" size="lg">2,1</Chip>
                                     </div>
                                     <div className="py-1 text-xs">
                                         <p></p>
@@ -456,9 +444,9 @@ export default function DigitalTwin() {
                         </Card>
                     </div>
                     <div className="w-5/6 px-2">
-                        <Card className="h-32  bg-cyan-900">
+                        <Card className="bg-cyan-900">
                             <CardBody>
-                                <p>Graph goes here</p>
+                                <LineChart data={sampleData} categoryKey="photobiologicalSafety" metricKey="UV"></LineChart>
                             </CardBody>
                         </Card>
                     </div>
@@ -467,4 +455,3 @@ export default function DigitalTwin() {
         </div>
     </div>
 }
-
