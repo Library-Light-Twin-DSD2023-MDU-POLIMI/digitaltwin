@@ -1,0 +1,542 @@
+[
+  {
+    "timestamp": "2023-11-20T00:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 50,
+      "uniformityRatio": 5
+    },
+    "glare": {
+      "UGR": 4
+    },
+    "colorRendering": {
+      "CRI": 180
+    },
+    "colorTemperature": {
+      "CCT": 5500,
+      "Duv": 0
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 80
+    },
+    "photobiologicalSafety": {
+      "UV": 2
+    }
+  },
+  {
+    "timestamp": "2023-11-20T04:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 48,
+      "uniformityRatio": 5.2
+    },
+    "glare": {
+      "UGR": 4.2
+    },
+    "colorRendering": {
+      "CRI": 182
+    },
+    "colorTemperature": {
+      "CCT": 5600,
+      "Duv": 1
+    },
+    "flicker": {
+      "SVM": 0.15
+    },
+    "colorPreference": {
+      "PVF": 75
+    },
+    "photobiologicalSafety": {
+      "UV": 2.3
+    }
+  },
+  {
+    "timestamp": "2023-11-20T08:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 52,
+      "uniformityRatio": 4.8
+    },
+    "glare": {
+      "UGR": 3.8
+    },
+    "colorRendering": {
+      "CRI": 175
+    },
+    "colorTemperature": {
+      "CCT": 5400,
+      "Duv": -0.5
+    },
+    "flicker": {
+      "SVM": 0.18
+    },
+    "colorPreference": {
+      "PVF": 78
+    },
+    "photobiologicalSafety": {
+      "UV": 1.8
+    }
+  },
+  {
+    "timestamp": "2023-11-20T12:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 49,
+      "uniformityRatio": 5.1
+    },
+    "glare": {
+      "UGR": 4.1
+    },
+    "colorRendering": {
+      "CRI": 178
+    },
+    "colorTemperature": {
+      "CCT": 5550,
+      "Duv": 0.2
+    },
+    "flicker": {
+      "SVM": 0.17
+    },
+    "colorPreference": {
+      "PVF": 79
+    },
+    "photobiologicalSafety": {
+      "UV": 1.9
+    }
+  },
+  {
+    "timestamp": "2023-11-20T16:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 53,
+      "uniformityRatio": 4.9
+    },
+    "glare": {
+      "UGR": 4
+    },
+    "colorRendering": {
+      "CRI": 183
+    },
+    "colorTemperature": {
+      "CCT": 5650,
+      "Duv": 0.5
+    },
+    "flicker": {
+      "SVM": 0.16
+    },
+    "colorPreference": {
+      "PVF": 77
+    },
+    "photobiologicalSafety": {
+      "UV": 2.1
+    }
+  }, 
+  {
+    "timestamp": "2023-11-20T20:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 50,
+      "uniformityRatio": 5
+    },
+    "glare": {
+      "UGR": 4
+    },
+    "colorRendering": {
+      "CRI": 180
+    },
+    "colorTemperature": {
+      "CCT": 5500,
+      "Duv": 0
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 80
+    },
+    "photobiologicalSafety": {
+      "UV": 2
+    }
+  },
+  {
+    "timestamp": "2023-11-21T00:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 48,
+      "uniformityRatio": 5.2
+    },
+    "glare": {
+      "UGR": 4.2
+    },
+    "colorRendering": {
+      "CRI": 182
+    },
+    "colorTemperature": {
+      "CCT": 5600,
+      "Duv": 1
+    },
+    "flicker": {
+      "SVM": 0.15
+    },
+    "colorPreference": {
+      "PVF": 75
+    },
+    "photobiologicalSafety": {
+      "UV": 2.3
+    }
+  },
+  {
+    "timestamp": "2023-11-21T04:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 52,
+      "uniformityRatio": 4.8
+    },
+    "glare": {
+      "UGR": 3.8
+    },
+    "colorRendering": {
+      "CRI": 175
+    },
+    "colorTemperature": {
+      "CCT": 5400,
+      "Duv": -0.5
+    },
+    "flicker": {
+      "SVM": 0.18
+    },
+    "colorPreference": {
+      "PVF": 78
+    },
+    "photobiologicalSafety": {
+      "UV": 1.8
+    }
+  },
+  {
+    "timestamp": "2023-11-21T08:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 45,
+      "uniformityRatio": 5.5
+    },
+    "glare": {
+      "UGR": 4.5
+    },
+    "colorRendering": {
+      "CRI": 178
+    },
+    "colorTemperature": {
+      "CCT": 5700,
+      "Duv": 0.3
+    },
+    "flicker": {
+      "SVM": 0.12
+    },
+    "colorPreference": {
+      "PVF": 82
+    },
+    "photobiologicalSafety": {
+      "UV": 2.5
+    }
+  },
+  {
+    "timestamp": "2023-11-21T12:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 55,
+      "uniformityRatio": 5.2
+    },
+    "glare": {
+      "UGR": 4.2
+    },
+    "colorRendering": {
+      "CRI": 180
+    },
+    "colorTemperature": {
+      "CCT": 5600,
+      "Duv": 0.8
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 77
+    },
+    "photobiologicalSafety": {
+      "UV": 2.2
+    }
+  },
+  {
+    "timestamp": "2023-11-21T16:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 50,
+      "uniformityRatio": 5
+    },
+    "glare": {
+      "UGR": 4
+    },
+    "colorRendering": {
+      "CRI": 180
+    },
+    "colorTemperature": {
+      "CCT": 5500,
+      "Duv": 0
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 80
+    },
+    "photobiologicalSafety": {
+      "UV": 2
+    }
+  },
+  {
+    "timestamp": "2023-11-21T20:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 48,
+      "uniformityRatio": 5.2
+    },
+    "glare": {
+      "UGR": 4.2
+    },
+    "colorRendering": {
+      "CRI": 182
+    },
+    "colorTemperature": {
+      "CCT": 5600,
+      "Duv": 1
+    },
+    "flicker": {
+      "SVM": 0.15
+    },
+    "colorPreference": {
+      "PVF": 75
+    },
+    "photobiologicalSafety": {
+      "UV": 2.3
+    }
+  },
+  {
+    "timestamp": "2023-11-22T00:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 52,
+      "uniformityRatio": 4.8
+    },
+    "glare": {
+      "UGR": 3.8
+    },
+    "colorRendering": {
+      "CRI": 175
+    },
+    "colorTemperature": {
+      "CCT": 5400,
+      "Duv": -0.5
+    },
+    "flicker": {
+      "SVM": 0.18
+    },
+    "colorPreference": {
+      "PVF": 78
+    },
+    "photobiologicalSafety": {
+      "UV": 1.8
+    }
+  },
+  {
+    "timestamp": "2023-11-22T04:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 53,
+      "uniformityRatio": 4.5
+    },
+    "glare": {
+      "UGR": 3.5
+    },
+    "colorRendering": {
+      "CRI": 178
+    },
+    "colorTemperature": {
+      "CCT": 5300,
+      "Duv": -1
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 76
+    },
+    "photobiologicalSafety": {
+      "UV": 1.5
+    }
+  },
+  {
+    "timestamp": "2023-11-22T08:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 55,
+      "uniformityRatio": 4.2
+    },
+    "glare": {
+      "UGR": 3.2
+    },
+    "colorRendering": {
+      "CRI": 170
+    },
+    "colorTemperature": {
+      "CCT": 5200,
+      "Duv": -1.5
+    },
+    "flicker": {
+      "SVM": 0.22
+    },
+    "colorPreference": {
+      "PVF": 74
+    },
+    "photobiologicalSafety": {
+      "UV": 1.3
+    }
+  }, 
+  {
+    "timestamp": "2023-11-22T12:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 50,
+      "uniformityRatio": 5
+    },
+    "glare": {
+      "UGR": 4
+    },
+    "colorRendering": {
+      "CRI": 180
+    },
+    "colorTemperature": {
+      "CCT": 5500,
+      "Duv": 0
+    },
+    "flicker": {
+      "SVM": 0.2
+    },
+    "colorPreference": {
+      "PVF": 80
+    },
+    "photobiologicalSafety": {
+      "UV": 2
+    }
+  },
+  {
+    "timestamp": "2023-11-22T16:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 48,
+      "uniformityRatio": 5.2
+    },
+    "glare": {
+      "UGR": 4.2
+    },
+    "colorRendering": {
+      "CRI": 182
+    },
+    "colorTemperature": {
+      "CCT": 5600,
+      "Duv": 1
+    },
+    "flicker": {
+      "SVM": 0.15
+    },
+    "colorPreference": {
+      "PVF": 75
+    },
+    "photobiologicalSafety": {
+      "UV": 2.3
+    }
+  },
+  {
+    "timestamp": "2023-11-22T20:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 52,
+      "uniformityRatio": 4.8
+    },
+    "glare": {
+      "UGR": 3.8
+    },
+    "colorRendering": {
+      "CRI": 175
+    },
+    "colorTemperature": {
+      "CCT": 5400,
+      "Duv": -0.5
+    },
+    "flicker": {
+      "SVM": 0.18
+    },
+    "colorPreference": {
+      "PVF": 78
+    },
+    "photobiologicalSafety": {
+      "UV": 1.8
+    }
+  },
+  {
+    "timestamp": "2023-11-23T00:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 54,
+      "uniformityRatio": 5.5
+    },
+    "glare": {
+      "UGR": 4.5
+    },
+    "colorRendering": {
+      "CRI": 185
+    },
+    "colorTemperature": {
+      "CCT": 5700,
+      "Duv": 0.5
+    },
+    "flicker": {
+      "SVM": 0.12
+    },
+    "colorPreference": {
+      "PVF": 82
+    },
+    "photobiologicalSafety": {
+      "UV": 1.5
+    }
+  },
+  {
+    "timestamp": "2023-11-23T04:00:00Z",
+    "assetId": "ObjectId1",
+    "illuminance": {
+      "maintainedAverage": 55,
+      "uniformityRatio": 5.8
+    },
+    "glare": {
+      "UGR": 4.8
+    },
+    "colorRendering": {
+      "CRI": 188
+    },
+    "colorTemperature": {
+      "CCT": 5800,
+      "Duv": 1.2
+    },
+    "flicker": {
+      "SVM": 0.1
+    },
+    "colorPreference": {
+      "PVF": 85
+    },
+    "photobiologicalSafety": {
+      "UV": 1.2
+    }
+  }
+]
