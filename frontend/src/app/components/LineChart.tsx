@@ -33,6 +33,8 @@ type LineChartProps = {
   metricKey: string; // e.g., "maintainedAverage", ..
 };
 
+ChartJS.defaults.color = '#a5d1e6';
+
 
 
 export default function LineChart(props: LineChartProps){  
