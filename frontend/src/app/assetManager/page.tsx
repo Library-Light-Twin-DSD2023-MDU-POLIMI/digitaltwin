@@ -5,7 +5,7 @@ export default function AssetManager() {
     return (
     <div className="bg-blue-50 flex flex-col gap-[3vh] p-10">
       Asset manager
-      <div className="bg-white rounded-lg p-10 max-w-800 gap-[1.5vh]">
+      <div className="bg-white rounded-lg p-10 max-w-800 flex flex-col gap-[4vh]">
         <LineChart data={sampleData} categoryKey="illuminance" metricKey="maintainedAverage"></LineChart>
         <LineChart data={sampleData} categoryKey="illuminance" metricKey="uniformityRatio"></LineChart>
       </div>
@@ -15,7 +15,7 @@ export default function AssetManager() {
       <div className="bg-white rounded-lg p-10 max-w-800">
         <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
       </div>
-      <div className=" bg-white rounded-lg p-10 max-w-800 gap-[1.5vh]">
+      <div className=" bg-white rounded-lg p-10 max-w-800 flex flex-col gap-[4vh]">
         <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
         <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
       </div>
