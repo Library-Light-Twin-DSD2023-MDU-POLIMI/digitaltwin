@@ -1,0 +1,51 @@
+{
+ "Assets":[
+        {
+            "_id": 0,
+            "uid": "id1", 
+            "currentStatus": "good", 
+            "predictiveStatus": {
+                      "status": "broke", 
+                      "predictedTime": 1
+                },
+            "type": "LED", 
+            "location" : {
+                "floor": 1, 
+                "section": "Section 3", 
+                "area": "Main"
+            }
+          },
+          {
+            "_id": 1,
+            "uid": "id2", 
+            "currentStatus": "broke", 
+            "predictiveStatus": {
+                      "status": "broke", 
+                      "predictedTime": 1
+                },
+            "type": "LED", 
+            "location" : {
+                "floor": 1, 
+                "section": "Section B", 
+                "area": "Basement"
+            }
+          },
+          {
+            "_id": 2,
+            "uid": "id3", 
+            "currentStatus": "good", 
+            "predictiveStatus": {
+                      "status": "good", 
+                      "predictedTime": 1
+                },
+            "type": "LED", 
+            "location" : {
+                "floor": 1, 
+                "section": "Low Table", 
+                "area": "Childrens"
+            }
+          }
+    
+    
+    ]
+    }
