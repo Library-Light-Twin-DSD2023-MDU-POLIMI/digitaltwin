@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
-import {Card, CardHeader, CardBody, Divider, Input, Button} from "@nextui-org/react";
+import {Card, CardHeader, CardBody, Divider, Input, Button, Textarea} from "@nextui-org/react";
 import {Select, SelectSection, SelectItem} from "@nextui-org/react";
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
@@ -58,7 +58,7 @@ export default function AddTwin() {
           </Select>
         </div>
         <div className="mt-4">
-          <Input
+          <Textarea
             labelPlacement="outside"
             type="notes"
             placeholder="Describe the digital twin"
