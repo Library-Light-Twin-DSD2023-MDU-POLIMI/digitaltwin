@@ -15,7 +15,7 @@ export default function AssetManager() {
       <div className="bg-white rounded-lg p-10 max-w-800">
         <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
       </div>
-      <div className=" bg-whiterounded-lg p-10 max-w-800 gap-[1.5vh]">
+      <div className=" bg-white rounded-lg p-10 max-w-800 gap-[1.5vh]">
         <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
         <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
       </div>
