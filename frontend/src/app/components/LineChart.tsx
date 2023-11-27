@@ -55,8 +55,8 @@ export default function LineChart(props: LineChartProps){
                 borderColor: (context) =>{
                   const ctx = context.chart.ctx;
                   const gradient = ctx.createLinearGradient(0, ctx.canvas.height/3, 0, 0); //TODO: want the colors to be relative to thresholds...
-                  gradient.addColorStop(1, 'purple');
-                  gradient.addColorStop(0.98, 'green');
+                  gradient.addColorStop(1, '#c542f5');
+                  gradient.addColorStop(0.70, 'green');
                   gradient.addColorStop(0.30, 'yellow');
                   gradient.addColorStop(0, 'red');
                   return gradient;
