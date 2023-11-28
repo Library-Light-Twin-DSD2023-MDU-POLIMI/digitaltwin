@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -17,20 +17,16 @@
 } 
 
 body{
-    background-color: white;
-    min-height: 100vh;
-    overflow-y: auto; 
+  background-color: white;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
 }
 
 #sidebar {
   float: left;
-  position: fixed;
-}
-
-/* #header {
-  position: fixed;
-} */
-
-#children {
-  margin-left: 250px;
 }
