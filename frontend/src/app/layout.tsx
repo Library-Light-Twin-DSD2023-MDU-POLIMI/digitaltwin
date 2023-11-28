@@ -23,9 +23,9 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <Providers>
-          <Header />
-          <Sidebar />
-          <main id="children">{children}</main>
+            <Header />
+            <Sidebar />
+            <main>{children}</main>
         </Providers>
       </body>
     </html>
