@@ -40,10 +40,8 @@ ChartJS.defaults.color = '#a5d1e6';
 export default function LineChart(props: LineChartProps){  
 
   return (
-    <div className='text-sky-500 w-full'>
-      {`${camelToTitleCase(props.metricKey)} ${camelToTitleCase(props.categoryKey)} from ${formatDatestamp(props.data[0].timestamp)} to ${formatDatestamp(
-        props.data[props.data.length - 1].timestamp
-      )}`}
+    <div className='text-sky-500 w-full text-center'>
+      {`${camelToTitleCase(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
 
       <div>
         <Line 
@@ -75,3 +73,7 @@ export default function LineChart(props: LineChartProps){
     </div>
   );
 }
+
+
+
+// (...) from ${formatDatestamp(props.data[0].timestamp)} to ${formatDatestamp(props.data[props.data.length - 1].timestamp)}

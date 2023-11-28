@@ -3,455 +3,247 @@
 import React from "react";
 import { 
     Card, 
-    CardHeader, 
     CardBody, 
     Button, 
-    ButtonGroup, 
-    Tooltip 
+    Select, 
+    SelectSection, 
+    SelectItem
 } from "@nextui-org/react";
+
 import { 
-    Cog6ToothIcon, 
-    AdjustmentsHorizontalIcon, 
-    TrashIcon, 
-    FlagIcon, 
     ClockIcon, 
     CalendarDaysIcon, 
-    CalendarIcon, 
-    WrenchScrewdriverIcon, 
-    ArrowTopRightOnSquareIcon
+    CalendarIcon,
 } from '@heroicons/react/24/outline';
-import { Chip } from "@nextui-org/react";
-import LineChart from "../components/LineChart";
 import sampleData from '../../utils/sampleData.json';
+
+import LineChart from "../components/LineChart";
+import LightingAssetHeader from "../components/LightingAssetHeader";
+import LatestValuesBar from "../components/LatestValuesBar";
+import LatestValueBox, { ColorOK } from "../components/LatestValueBox";
+
+
 
 
 export default function DigitalTwin() {
-    return <div>
-        <div id="container_name_options" className="py-4 px-2">
-            <Card>
-                <CardHeader className="flex justify-between items-center bg-cyan-950">
-                    <div className="flex flex-col">
-                        <p className="text-md text-2xl" id="digital_twin_name">Childrens' Area - Low Table</p>
-                        <p id="located_floor">1st Floor</p>
-                    </div>
-                    <ButtonGroup size="sm">
-                        <div className="px-1">
-                            <Tooltip content="Scheduled Maintanence">
-                                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><WrenchScrewdriverIcon /></Button>
-                            </Tooltip>
-                        </div>
-                        <div className="px-1">
-                            <Tooltip content="Recomended Future Maintenence">
-                                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><FlagIcon /></Button>
-                            </Tooltip>
-                        </div>
-                        <div className="px-1">
-                            <Tooltip content="Control Lighting Asset">
-                                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><AdjustmentsHorizontalIcon /></Button>
-                            </Tooltip>
-                        </div>
-                        <div className="px-1">
-                            <Tooltip content="Remove Digital Twin">
-                                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><TrashIcon /></Button>
-                            </Tooltip>
-                        </div>
-                        <div className="px-1">
-                            <Tooltip content="Settings">
-                                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><Cog6ToothIcon /></Button>
-                            </Tooltip>
-                        </div>
-                    </ButtonGroup>
-                </CardHeader>
-            </Card>
-        </div>
+    return (
+        <div className="px-10 flex flex-col gap-2 bg-[#c3ebfa] rounded-lg w-7/9 h-full">
+            <LightingAssetHeader/>
 
-        <div id="container_status_latest_values" className=" flex px-2 py-2 gap-2 w-auto">
-            <div>
-                <Card className="bg-cyan-950">
-                    <CardBody>
-                        <div className="py-1">
-                            <Chip color="success" className="w-40 " variant="dot" >
-                                Current Status
-                            </Chip>
+            <LatestValuesBar/>
+            
+
+            <div id= "container_grpahs" className="flex w-full flex-wrap md:flex-nowrap gap-4" >
+                <Card className=" bg-cyan-950">
+                    <div id="btn_duration" className="flex gap-4 justify-end items-center px-4 py-4" >
+                        <Select label="Select time interval" className="max-w-xs" radius={'full'} color={"default"} defaultSelectedKeys={["threeDays"]}>
+                            <SelectItem key={''} value={''}> 24 hours </SelectItem>
+                            <SelectItem key={'threeDays'} value={''}> 3 days </SelectItem>
+                            <SelectItem key={''} value={''}> 1 week </SelectItem>
+                            <SelectItem key={''} value={''}> 1 month </SelectItem>
+                            <SelectItem key={''} value={''}> 3 months </SelectItem>
+                            <SelectItem key={''} value={''}> 1 year </SelectItem>
+                        </Select>
+                    </div>
+
+                    <div id="param_illumination" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center pl-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Maintained Average Illuminance?"}
+                                tooltipContent={'Illuminance level lighting installations aim to provide'}
+                                latestValueTitle={"MR Illuminance"}
+                                latestValueNumber={50}
+                                latestValueUnit={"lux"}
+                                dotColor={ColorOK.good} 
+                                inSummaryBar={false}                            
+                            />  
                         </div>
-                        <div className="py-1 flex gap-2 grid-cols-1">
-                            <div>
-                                <Chip color="warning" variant="dot" >
-                                    Predicted Status in 1 week
-                                </Chip>
-                            </div>
-                            <div>
-                                <Tooltip showArrow placement="top" content="Go to predictions">
-                                    <Button size="sm" className="p-2 bg-cyan-950" isIconOnly><ArrowTopRightOnSquareIcon /></Button>
-                                </Tooltip>
-                            </div>
+                        <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="illuminance" metricKey="maintainedAverage"></LineChart>
+                                </CardBody>
+                            </Card>
                         </div>
-                    </CardBody>
+                    </div>
+
+                    <div id="param_illumination" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center pl-2">
+                        <LatestValueBox 
+                            tooltipTitle={"What is Uniformity Ratio Illuminance?"}
+                            tooltipContent={'Ratio of minimum to average or maximum illuminance'}
+                            latestValueTitle={"UR Illuminance"}
+                            latestValueNumber={5.0}
+                            latestValueUnit={"lux"} 
+                            dotColor={ColorOK.warning}       
+                            inSummaryBar={false}     
+                        />  
+                        </div>
+                        <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="illuminance" metricKey="uniformityRatio"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+                    
+
+                    <div id="param_glare" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center pl-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Glare?"}
+                                tooltipContent={'Unified Glare Rating (UGR) - Numerical measure of glare in a particular environment'}
+                                latestValueTitle={"Glare"}
+                                latestValueNumber={4.0}
+                                dotColor={ColorOK.warning} 
+                                inSummaryBar={false}           
+                            />
+                        </div>
+                        <div className="w-[70vw] px-2">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="glare" metricKey="UGR"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="param_clr_rendering" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center px-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Color Rendering?"}
+                                tooltipContent={"Measure of light source's ability to reveal colors accurately"}
+                                latestValueTitle={"Color Rendering"}
+                                latestValueNumber={180}
+                                latestValueUnit={"CRI"} 
+                                dotColor={ColorOK.good}
+                                inSummaryBar={false}            
+                            />
+                        </div>
+                        <div className="w-[70vw] px-2">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="cct_c_temperature" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center pl-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is CCT Color Temperature?"}
+                                tooltipContent={"Color appearance of light emitted by a lamp"}
+                                latestValueTitle={"CCT Color Temp"}
+                                latestValueNumber={5500}
+                                latestValueUnit={"K"} 
+                                dotColor={ColorOK.warning}
+                                inSummaryBar={false}            
+                            />
+                        </div>
+                        <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="duv_c_temperature" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center pl-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Duv Color Temperature?"}
+                                tooltipContent={"Deviation from the black-body line in color space"}
+                                latestValueTitle={"Duv Color Temp"}
+                                latestValueNumber={0}
+                                latestValueUnit={"K"} 
+                                dotColor={ColorOK.warning}
+                                inSummaryBar={false}            
+                            />  
+                        </div>
+                        <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="flicker" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center px-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Flicker?"}
+                                tooltipContent={"Stroboscopic Visibility Measure (SVM) - Measure of visibility of stroboscopic effects"}
+                                latestValueTitle={"Flicker"}
+                                latestValueNumber={24}
+                                latestValueUnit={"Hz"} 
+                                dotColor={ColorOK.warning}
+                                inSummaryBar={false}            
+                            />  
+                        </div>
+                        <div className="w-[70vw] px-2">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="flicker" metricKey="SVM"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="clr_preference" className="flex px-2 py-2 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center px-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Color Preference?"}
+                                tooltipContent={"PVF"}
+                                latestValueTitle={"Color Preference"}
+                                latestValueNumber={78}
+                                latestValueUnit={""} 
+                                dotColor={ColorOK.tooLow}
+                                inSummaryBar={false}            
+                            />
+                        </div>
+                        <div className="w-[70vw] px-2">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="colorPreference" metricKey="PVF"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+
+                    <div id="phot_safety" className="flex px-2 py-2 pb-5 gap-2 grid-cols-2">
+                        <div className="w-[13vw] items-center px-2">
+                            <LatestValueBox 
+                                tooltipTitle={"What is Photo Safety?"}
+                                tooltipContent={"Ultra Violet radiation"}
+                                latestValueTitle={"Photo Safety"}
+                                latestValueNumber={1.9}
+                                latestValueUnit={""} 
+                                dotColor={ColorOK.warning}
+                                inSummaryBar={false}            
+                            />      
+                        </div>
+                        <div className="w-[70vw] px-2">
+                            <Card className="bg-cyan-900">
+                                <CardBody>
+                                    <LineChart data={sampleData} categoryKey="photobiologicalSafety" metricKey="UV"></LineChart>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
                 </Card>
             </div>
-            <div>
-                <Card className="bg-cyan-950 " >
-                    <div className="flex px-2 py-2 gap-2 w-5/6">
-                        <div className="m-auto">
-                            <p className="text-sm"> Latest Values</p>
-                        </div>
-                        <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                    <Tooltip showArrow placement="bottom"
-                                    content={
-                                        <div className="px-1 py-2">
-                                            <div className="text-small font-bold">What is Illuminance?</div>
-                                            <div className="text-tiny">Lorem ipsum dolor sit amet</div>
-                                        </div>
-                                    }
-                                >
-                                    <Chip className="text-sm font-bold content-center" color="success" variant="dot" >
-                                        Illuminance
-                                    </Chip>
-                                </Tooltip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>lux</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="warning" variant="dot" >
-                                            Glare
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="danger" variant="dot" >
-                                            Color Rendering
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>CRI</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="success" variant="dot" >
-                                            Temperature
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>K</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div>
-                        <Card className="flex bg-cyan-950">
-                                <CardHeader className="px-1">
-                                    <div>
-                                        <Chip className="text-sm font-bold content-center" color="danger" variant="dot" >
-                                            Flicker
-                                        </Chip>
-                                    </div>
-                                </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2 py-1">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="sm">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>Hz</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                        </div>
-                    </div>
-                </Card>
-            </div>
         </div>
-
-        <div id= "container_grpahs" className="py-2 px-2 h-auto" >
-            <Card className=" bg-cyan-950">
-                <div id= "btn_duration" className="flex gap-4 justify-end items-center px-4 py-4" >
-                    <Button className=" bg-cyan-900" startContent={<ClockIcon />}> 24 hours </Button>
-                    <Button className=" bg-cyan-900" startContent={<CalendarDaysIcon />}> 1 week</Button>
-                    <Button className=" bg-cyan-900" startContent={<CalendarDaysIcon />}> 1 month</Button>
-                    <Button className=" bg-cyan-900" startContent={<CalendarDaysIcon />}> 3 months</Button>
-                    <Button className=" bg-cyan-900" startContent={<CalendarIcon />}> 1 year</Button>
-                </div>
-
-                <div id="left_card_param_illumination" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Tooltip showArrow placement="right"
-                                    content={
-                                        <div className="px-1 py-2">
-                                            <div className="text-small font-bold">What is Illuminance?</div>
-                                            <div className="text-tiny">Lorem ipsum dolor sit amet</div>
-                                        </div>
-                                    }
-                                >
-                                    <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                        Illuminance
-                                    </Chip>
-                                </Tooltip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>lux</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2 flex flex-col gap-[1vh]">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="illuminance" metricKey="maintainedAverage"></LineChart>
-                            </CardBody>
-                        </Card>
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="illuminance" metricKey="uniformityRatio"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_param_glare" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="warning" variant="dot" >
-                                    Glare
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p> </p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="glare" metricKey="UGR"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_param_clr_rendering" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                    Color Rendering
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>CRI</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_temperature" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                    Temperature
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>K</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2 flex flex-col gap-[1vh]">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
-                            </CardBody>
-                        </Card>
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_flicker" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="danger" variant="dot" >
-                                    Flicker
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p>Hz</p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="flicker" metricKey="SVM"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_clr_preference" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                    Color Preference
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">24</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="colorPreference" metricKey="PVF"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-
-                <div id="left_card_phot_safety" className="flex px-2 py-2 gap-2 grid-cols-2">
-                    <div className="w-1/6 items-center px-2">
-                        <Card className="flex h-32 bg-cyan-950">
-                            <CardHeader >
-                                <Chip className="text-lg font-bold content-center" color="success" variant="dot" >
-                                    Photo Safety
-                                </Chip>
-                            </CardHeader>
-                            <CardBody className="items-center flex grid-cols-2">
-                                <div className="flex grid-cols-2">
-                                    <div>
-                                        <Chip color="default" variant="light" size="lg">2,1</Chip>
-                                    </div>
-                                    <div className="py-1 text-xs">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </CardBody>
-                            
-                        </Card>
-                    </div>
-                    <div className="w-5/6 px-2">
-                        <Card className="bg-cyan-900">
-                            <CardBody>
-                                <LineChart data={sampleData} categoryKey="photobiologicalSafety" metricKey="UV"></LineChart>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </div>
-            </Card>
-        </div>
-    </div>
+    )
 }
+
+
+/* 
+
+Kan lage en grid med to kollonner + en funksjon som populerer én rad av gangen. Slik kan jeg få fixed width på kolonnene!!
+Kolonne 1 rad x har LatestValueBox, kolonne2 rad x har tilhørende graf.
+
+*/
