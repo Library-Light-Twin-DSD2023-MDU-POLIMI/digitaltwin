@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState } from 'react';
-import FilterDigitalTwin from './components/filterDigitalTwin'
 import DigitalTwin from './components/digitalTwin';
 import * as userData from './assets.json';
 import * as digitalTwin from './digitalTwin.json';
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid';
 import { Button, Input, Select, SelectItem } from '@nextui-org/react';
+import AddTwin from './components/addTwin';
 
 
 
@@ -72,14 +72,22 @@ const Home: React.FC = () => {
       setSearchQuery(event.target.value.toLowerCase());
     };
   
-    // Assuming data.Assets and digitalTwinData.DigitalTwins are arrays from your JSON
     const filteredAssets = userData.Assets.filter((asset) =>
       asset.location.area.toLowerCase().includes(searchQuery)
     );
+
+    const [showAddTwin, setShowAddTwin] = useState(false);
+    const toggleAddTwin = () => {
+        setShowAddTwin(!showAddTwin);
+    };
+
+
   
     return (
       <>
-        <div className="flex flex-col gap-4 bg-slate-300 p-7 rounded-lg" style={{marginLeft: '80px', marginTop: '50px', marginRight: '60px', marginBottom:'40px'}}>
+      <div className="flex flex-col">
+
+        <div className="flex flex-col gap-4 bg-slate-300 p-7 rounded-lg" style={{marginLeft: '50px', marginTop: '50px', marginRight: '60px', marginBottom:'40px'}}>
         <Input
           placeholder="Search"
           className="max-w-xs"
@@ -162,21 +170,24 @@ const Home: React.FC = () => {
           </SelectItem>
         </Select>
 
-        <Button name="applyButton" style={{ backgroundColor: '#07C075', color: 'white' }}>Apply</Button>
-
-        <Button isIconOnly style={{ backgroundColor: '#07C075', color: 'white' }}>
+        <Button isIconOnly style={{ backgroundColor: '#07C075', color: 'white' }} onPress={toggleAddTwin}>
           <PlusIcon />
         </Button>
       </div>
-    </div>  
 
-        {filteredAssets.map((asset) => {
-          const twinData = digitaltwindata.DigitalTwins.find(dt => dt.assetId === asset.uid);
-          return twinData ? (
-            <DigitalTwin key={asset.uid} asset={asset} digitalTwin={twinData} />
-          ) : null;
-        })}
-      </>
+        {showAddTwin && <AddTwin/>}
+      </div>  
+      <div className='flex flex-col' style={{marginLeft: '50px'}}>
+          {filteredAssets.map((asset) => {
+            const twinData = digitaltwindata.DigitalTwins.find(dt => dt.assetId === asset.uid);
+            return twinData ? (
+              <DigitalTwin key={asset.uid} asset={asset} digitalTwin={twinData} />
+            ) : null;
+          })}
+
+      </div>
+      </div>
+        </>
     );
   }
   

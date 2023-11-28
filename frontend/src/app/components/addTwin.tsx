@@ -2,23 +2,22 @@
 
 import React, { useState } from "react";
 import {Card, CardHeader, CardBody, Divider, Input, Button, Textarea} from "@nextui-org/react";
-import {Select, SelectSection, SelectItem} from "@nextui-org/react";
+import {Select, SelectItem} from "@nextui-org/react";
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import '../globals.css';
 
 export default function AddTwin() {
+
+  /* TODO: Add a global state to handle visibility, not in both home and here. */
   const [isCardVisible, setIsCardVisible] = useState(true);
   const hideCard = () => setIsCardVisible(false);
-  /* const saveCard = () => make an API call */
 
   if (!isCardVisible) return null;
   
   return (
-    <Card className="max-w-[600px]" style={{ height: 'auto', minHeight: '500px' }}>
+    <Card className="max-w-[700px]" style={{ height: 'auto', minHeight: '500px', backgroundColor: '#d1d5db'}}>
       <CardHeader className="flex justify-between items-center">
-        <div className="flex flex-col">
-          <p className="text-md text-2xl">Add new digital twin</p>
-          <p className="text-large">Digital twin details</p>
-        </div>
+          <p className="text-md text-2xl">Add a new digital twin</p>
         <Button isIconOnly onPress={hideCard}>
           <XMarkIcon />
         </Button>
@@ -32,19 +31,26 @@ export default function AddTwin() {
             type="assetID"
             placeholder="Asset Identifier"
             label="AssetID"
-            className="max-w-xs"
+            className="max-w-xs"          
           />
           <Select 
             isRequired
             labelPlacement="outside"
-            label="Floor"
-            placeholder="Select a floor" 
+            label="Area"
+            placeholder="Select an Area" 
             className="max-w-xs" 
           >
             <SelectItem key={""}>
-              Test
+              Basement
+            </SelectItem>
+            <SelectItem key={""}>
+              Main
+            </SelectItem>
+            <SelectItem key={""}>
+              Childrens
             </SelectItem>
           </Select>
+
           <Select 
             isRequired
             labelPlacement="outside"
@@ -53,10 +59,41 @@ export default function AddTwin() {
             className="max-w-xs" 
           >
             <SelectItem key={""}>
-              Test
+              Section 1
+            </SelectItem>
+            <SelectItem key={""}>
+              Section 2
+            </SelectItem>
+            <SelectItem key={""}>
+              Section 3
+            </SelectItem>
+          </Select>
+
+          <Select 
+            isRequired
+            labelPlacement="outside"
+            label="Floor"
+            placeholder="Select a floor" 
+            className="max-w-xs" 
+          >
+            <SelectItem key={""}>
+              Floor 0
+            </SelectItem>
+
+            <SelectItem key={""}>
+              Floor 1
+            </SelectItem>
+
+            <SelectItem key={""}>
+              Floor 2
+            </SelectItem>
+
+            <SelectItem key={""}>
+              Floor 3
             </SelectItem>
           </Select>
         </div>
+
         <div className="mt-4">
           <Textarea
             labelPlacement="outside"
@@ -67,14 +104,9 @@ export default function AddTwin() {
             style={{ height: '150px', width: '100%' }} 
           />
         </div>
-        <div className="flex justify-end gap-2 mt-4">
-          <Button size="md">
-            Save
-          </Button>
-          <Button size="md" onPress={hideCard}>
-            Cancel
-          </Button>
-        </div>
+        <Button size="md" style={{backgroundColor: '#082f49', color: 'white'}}>
+           Save
+        </Button>
       </CardBody>
     </Card>
   );
