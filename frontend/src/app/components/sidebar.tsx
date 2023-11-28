@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
+import { LightBulbIcon, ChartPieIcon, BellAlertIcon, AdjustmentsHorizontalIcon, Cog6ToothIcon  } from '@heroicons/react/24/solid'
 import '../globals.css'
 
 
@@ -18,11 +19,11 @@ function getRoutingPath() {
 export default function Sidebar() {
   const path = getRoutingPath()
   const sidebarOptions = [
-    {name: "Asset Manager", href: "/assetManager", current: path==="/assetManager" ? true: false },
-    {name: "Analytic Reports", href: "/analyticsReport", current: path==="/analyticsReport" ? true: false },
-    {name: "Preset Configuration", href: "/presets", current: path==="/presets" ? true: false},
-    {name: "Notifications", href: "/notification", current: path==="/notification" ? true: false},
-    {name: "Settings", href: "/settings", current: path==="/settings" ? true: false}
+    {name: "Asset Manager", href: "/assetManager", icon: LightBulbIcon, current: path==="/assetManager" ? true: false },
+    {name: "Analytic Reports", href: "/analyticsReport", icon: ChartPieIcon, current: path==="/analyticsReport" ? true: false },
+    {name: "Preset Configuration", href: "/presets", icon: AdjustmentsHorizontalIcon, current: path==="/presets" ? true: false},
+    {name: "Notifications", href: "/notification", icon: BellAlertIcon, Cocurrent: path==="/notification" ? true: false},
+    {name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: path==="/settings" ? true: false}
   ]
 
   return (
@@ -39,6 +40,7 @@ export default function Sidebar() {
                   {sidebarOptions.map((option)=> (
                     <li key={option.name}>
                         <Link href={option.href} className={classNames(option.current ? "bg-cyan-900 text-white  hover:text-white" : "text-gray-400 hover:text-white hover:bg-cyan-900 bg-cyan-900", "group flex gap-x-3 rounded-md p-4 text-sm leading-6 font-semibold" )}>
+                        <option.icon className=' group-hover:text-white h-6 w-6 shrink-0'/>
                           {option.name}
                         </Link>
                     </li>
