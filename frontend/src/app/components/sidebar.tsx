@@ -28,7 +28,7 @@ export default function Sidebar() {
 
   return (
     <div id="sidebar">
-      <div className='w-60 min-h-full'>
+      <div className='w-60 h-full min-h-full'>
         <div className='flex grow flex-col h-full gapy-y-5 overflow-y-auto bg-cyan-950 bg-blend-darken px-4 pb-4 border-r-2' style={{ minHeight: '100vh' }}>
           <nav className='flex flex-1 flex-col'
           data-te-sidenav-init
