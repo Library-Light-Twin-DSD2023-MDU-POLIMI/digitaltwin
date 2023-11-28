@@ -12,7 +12,7 @@ export default function StatusSummary() {
             Current Status
         </Chip>
         <a href='vg.no' target="_blank"> {/* TODO: add correct link */}
-            <Tooltip showArrow placement="top" content="View predictions" color='primary' >
+            <Tooltip showArrow placement="top" content="View predictions" color='default'>
                 <Chip color="warning" className="bg-cyan-950" variant="dot" >
                     Predicted Status in 1 week 
                 </Chip>

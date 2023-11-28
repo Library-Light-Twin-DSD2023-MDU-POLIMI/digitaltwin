@@ -4,15 +4,15 @@ import React from 'react'
 
 export default function LightingAssetActions() {
   return (
-    <ButtonGroup size="sm">
-        <div className="px-1">
-            <Tooltip content="Scheduled Maintanence">
-                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><WrenchScrewdriverIcon /></Button>
-            </Tooltip>
-        </div>
+    <ButtonGroup size="sm" className='grid lg:grid-cols-5 md:grid-cols-2'>
         <div className="px-1">
             <Tooltip content="Recomended Future Maintenence">
                 <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><FlagIcon /></Button>
+            </Tooltip>
+        </div>
+        <div className="px-1">
+            <Tooltip content="Shedule Maintanence">
+                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><WrenchScrewdriverIcon /></Button>
             </Tooltip>
         </div>
         <div className="px-1">
