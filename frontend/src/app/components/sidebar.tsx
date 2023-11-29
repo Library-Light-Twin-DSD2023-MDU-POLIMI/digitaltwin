@@ -28,8 +28,8 @@ export default function Sidebar() {
 
   return (
     <div id="sidebar">
-      <div className='w-60 h-full min-h-full'>
-        <div className='flex grow flex-col h-full gapy-y-5 overflow-y-auto bg-cyan-950 bg-blend-darken px-4 pb-4 border-r-2' style={{ minHeight: '100vh' }}>
+      <div className='w-60 h-full min-h-full drop-shadow-lg'>
+        <div className='flex grow flex-col h-full gapy-y-5 overflow-y-auto bg-primary px-4 pb-4' style={{ minHeight: '100vh' }}>
           <nav className='flex flex-1 flex-col'
           data-te-sidenav-init
           data-te-sidenav-hidden="false"
@@ -39,7 +39,7 @@ export default function Sidebar() {
                 <ul role='list' className='-mx-2  space-y-1'  data-te-sidenav-menu-ref>
                   {sidebarOptions.map((option)=> (
                     <li key={option.name}>
-                        <Link href={option.href} className={classNames(option.current ? "bg-cyan-900 text-white  hover:text-white" : "text-gray-400 hover:text-white hover:bg-cyan-900 bg-cyan-900", "group flex gap-x-3 rounded-md p-4 text-sm leading-6 font-semibold" )}>
+                        <Link href={option.href} className={classNames(option.current ? "text-primary bg-primary-700 hover:text-background" : "hover:bg-primary-700 hover:text-primary bg-primary-800", "group flex gap-x-3 rounded-md p-4 text-sm leading-6 font-semibold" )}>
                         <option.icon className=' group-hover:text-white h-6 w-6 shrink-0'/>
                           {option.name}
                         </Link>

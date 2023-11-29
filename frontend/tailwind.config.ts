@@ -25,11 +25,47 @@ const config: Config = {
       themes: {
         light: {
           layout: {}, 
-          colors: {} 
+          colors: {
+            background: '#dff1fe',
+            foreground: '#093343', 
+            primary: {
+              50: '#f0f9fe',
+              100: '#dff1fe',
+              200: '#bae6fc',
+              300: '#7cd3fc',
+              400: '#37bcf8',
+              500: '#0ba5e9',
+              600: '#0084c7',
+              700: '#0d7490',
+              800: '#155e75',
+              900: '#164e63',
+              DEFAULT: '#f0f9fe',
+              foreground: '#093343'
+            },
+            focus: '#38bdf8'
+           }, 
         },
         dark: {
           layout: {}, 
-          colors: {} 
+          colors: {
+            background: '#155e75',
+            foreground: '#ffffff',
+            primary: {
+              50: '#164e63',
+              100: '#155e75',
+              200: '#0d7490',
+              300: '#0084c7',
+              400: '#0ba5e9',
+              500: '#37bcf8',
+              600: '#7cd3fc',
+              700: '#bae6fc',
+              800: '#dff1fe',
+              900: '#f0f9fe',
+              DEFAULT: '#164e63',
+              foreground: '#ffffff'
+            },
+            focus: '#3b81f6'
+           },
         },
         modern: {
           extend: 'dark', 
@@ -50,7 +86,7 @@ const config: Config = {
               DEFAULT: '#DD62ED',
               foreground: '#ffffff'
             },
-            focus: '#F182F6'
+            focus: '#3b81f6'
           },
           layout: {
             disabledOpacity: '0.3',
@@ -63,11 +99,11 @@ const config: Config = {
               small: '1px',
               medium: '2px',
               large: '3px'
-            }
-          }
-        }
-      }
-    })
-  ]
-}
+            },
+          },
+        },
+      },
+    }),
+  ],
+};
 export default config

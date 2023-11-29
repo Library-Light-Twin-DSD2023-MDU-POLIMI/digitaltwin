@@ -18,7 +18,7 @@ ChartJS.register(
   Tooltip
 );
 import { formatDateTimestamp, formatDatestamp } from '../../utils/timeFormat';
-import { camelToTitleCase} from '../../utils/textFormat';
+import { camelToAbbreviation, camelToTitleCase } from '../../utils/textFormat';
 import { LightingAssetTimeSeriesData } from '../../utils/typeDefs';
 
  
@@ -33,15 +33,15 @@ type LineChartProps = {
   metricKey: string; // e.g., "maintainedAverage", ..
 };
 
-ChartJS.defaults.color = '#a5d1e6';
+//ChartJS.defaults.color = '#a5d1e6';
 
 
 
 export default function LineChart(props: LineChartProps){  
 
   return (
-    <div className='text-sky-500 w-full text-center'>
-      {`${camelToTitleCase(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
+    <div className='w-full text-center'>
+      {`${camelToAbbreviation(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
 
       <div>
         <Line 
@@ -49,7 +49,7 @@ export default function LineChart(props: LineChartProps){
             labels: props.data.map((entry) => formatDateTimestamp(entry.timestamp)), 
             datasets: [
               {
-                label: `${props.categoryKey}.${props.metricKey}`,
+                label: `${camelToAbbreviation(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`,
                 data: props.data.map((entry) => getNestedProperty(entry, [props.categoryKey, props.metricKey])),
                 tension: 0.1,
                 borderColor: (context) =>{
@@ -65,7 +65,12 @@ export default function LineChart(props: LineChartProps){
             ],
           }}
           options={{
-            responsive: true
+            responsive: true, 
+            plugins: {
+              tooltip: {
+                displayColors: false,
+              },
+            },
           }} 
         />
       </div>

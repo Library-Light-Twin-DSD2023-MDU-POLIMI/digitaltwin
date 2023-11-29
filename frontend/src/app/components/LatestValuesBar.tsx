@@ -7,7 +7,7 @@ import LatestValueBox, {ColorOK} from './LatestValueBox'
 export default function LatestValuesBar() {
 
   return (
-      <Card className="flex flex-col justify-evenly bg-cyan-950 w-3/4 w-full" >
+      <Card className="flex flex-col justify-evenly bg-primary-200 w-3/4 w-full" >
             <div className="py-4 m-auto text-auto">
                   <p className="text-sm"> Latest Values</p>
             </div>

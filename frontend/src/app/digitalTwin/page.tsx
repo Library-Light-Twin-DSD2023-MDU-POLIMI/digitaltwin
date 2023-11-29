@@ -27,16 +27,16 @@ import LatestValueBox, { ColorOK } from "../components/LatestValueBox";
 
 export default function DigitalTwin() {
     return (
-        <div className="px-10 flex flex-col gap-2 bg-[#c3ebfa] rounded-lg w-7/9 h-full">
+        <div className="px-10 flex flex-col gap-4 rounded-lg w-7/9 h-full">
             <LightingAssetHeader/>
 
             <LatestValuesBar/>
             
 
             <div id= "container_grpahs" className="flex w-full flex-wrap md:flex-nowrap gap-4" >
-                <Card className=" bg-cyan-950">
+                <Card className="bg-primary-200">
                     <div id="btn_duration" className="flex gap-4 justify-end items-center px-4 py-4" >
-                        <Select label="Select time interval" className="max-w-xs" radius={'full'} color={"default"} defaultSelectedKeys={["threeDays"]}>
+                        <Select label="Select time interval" className="max-w-xs " radius={'full'} key={"primary"} color={"default"} defaultSelectedKeys={["threeDays"]}>
                             <SelectItem key={''} value={''}> 24 hours </SelectItem>
                             <SelectItem key={'threeDays'} value={''}> 3 days </SelectItem>
                             <SelectItem key={''} value={''}> 1 week </SelectItem>
@@ -59,7 +59,7 @@ export default function DigitalTwin() {
                             />  
                         </div>
                         <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="illuminance" metricKey="maintainedAverage"></LineChart>
                                 </CardBody>
@@ -80,7 +80,7 @@ export default function DigitalTwin() {
                         />  
                         </div>
                         <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="illuminance" metricKey="uniformityRatio"></LineChart>
                                 </CardBody>
@@ -101,7 +101,7 @@ export default function DigitalTwin() {
                             />
                         </div>
                         <div className="w-[70vw] px-2">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="glare" metricKey="UGR"></LineChart>
                                 </CardBody>
@@ -122,7 +122,7 @@ export default function DigitalTwin() {
                             />
                         </div>
                         <div className="w-[70vw] px-2">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="colorRendering" metricKey="CRI"></LineChart>
                                 </CardBody>
@@ -143,7 +143,7 @@ export default function DigitalTwin() {
                             />
                         </div>
                         <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="CCT"></LineChart>
                                 </CardBody>
@@ -164,7 +164,7 @@ export default function DigitalTwin() {
                             />  
                         </div>
                         <div className="w-[70vw] px-2 flex flex-col gap-[1vh]">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="colorTemperature" metricKey="Duv"></LineChart>
                                 </CardBody>
@@ -185,7 +185,7 @@ export default function DigitalTwin() {
                             />  
                         </div>
                         <div className="w-[70vw] px-2">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="flicker" metricKey="SVM"></LineChart>
                                 </CardBody>
@@ -206,7 +206,7 @@ export default function DigitalTwin() {
                             />
                         </div>
                         <div className="w-[70vw] px-2">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="colorPreference" metricKey="PVF"></LineChart>
                                 </CardBody>
@@ -227,7 +227,7 @@ export default function DigitalTwin() {
                             />      
                         </div>
                         <div className="w-[70vw] px-2">
-                            <Card className="bg-cyan-900">
+                            <Card className="bg-primary">
                                 <CardBody>
                                     <LineChart data={sampleData} categoryKey="photobiologicalSafety" metricKey="UV"></LineChart>
                                 </CardBody>

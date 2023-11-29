@@ -15,3 +15,13 @@ export function camelToSentenceCase(input: string): string {
 export function camelToLowercase(input: string): string {
     return input.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
 }
+
+
+export function camelToAbbreviation(input: string): string {
+    if (/^[a-z][A-Za-z]*$/.test(input)) {
+        const words = input.split(/(?=[A-Z])/);
+        return words.map(word => word.charAt(0).toUpperCase()).join('');
+    } else {
+        return input;
+    }
+}
