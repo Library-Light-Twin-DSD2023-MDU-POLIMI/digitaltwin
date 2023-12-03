@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "precommit": "cd frontend && npm run format"
+  },
   "devDependencies": {
     "husky": "^8.0.3"
   }
