@@ -1,30 +1,35 @@
 import { Card, CardHeader, Chip, CardBody, Tooltip } from '@nextui-org/react'
 import React from 'react'
 
-export enum ColorOK { //map to currentStatus values (e.g. 4 = "success")
+export enum ColorOK { 
     grey = "default",
     primary = "primary", 
     tooHigh = "secondary" , 
-    good = "success" , 
-    warning = "warning" , 
+    perfect = "success" , 
+    good = "success" ,
+    mid = "warning",
+    tooLow2 = "warning" , 
     tooLow = "danger"
 }
 
 interface LatestValueBoxProps {
-    tooltipTitle: string, //camelToAbbreviation(metricValue) camelToTitleCase(keyValue)
+    metricForID: string,
+    tooltipTitle: string, 
     tooltipContent?: string, 
     latestValueTitle: string, 
     latestValueNumber: number,
     latestValueUnit?: string,
-    dotColor: ColorOK, //healthStatus
+    dotColor: ColorOK, //from healthStatus
     inSummaryBar: boolean
 }
 
 
 
 export default function LatestValueBox(props: LatestValueBoxProps) {
+    const customID = 'metricForID' + `${props.inSummaryBar? "_inBar" : ""}`
+
   return (
-    <Card className="flex bg-primary-200">
+    <Card id={customID} className="flex bg-primary-200">
         <CardHeader 
             className={props.inSummaryBar ? "px-2 flex flex-col items-center": "px-2 py-2 flex flex-col items-center"}
         >
