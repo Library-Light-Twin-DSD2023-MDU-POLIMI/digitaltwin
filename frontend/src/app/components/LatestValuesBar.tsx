@@ -1,99 +1,52 @@
-import { Card, CardHeader, Tooltip, Chip, CardBody } from '@nextui-org/react'
-import React, { useState } from 'react'
+import { Card } from '@nextui-org/react'
+import React from 'react'
 import LatestValueBox, {ColorOK} from './LatestValueBox'
+import { LightingAssetTimeSeriesData, MetricMetaData } from '@/utils/typeDefs';
+import { camelToTitleCase, customFormatter } from '@/utils/textFormat';
+import { findCategoryMap, findDotColor, getNestedProperty } from '../digitalTwin/page';
 
-//TODO: add props, make responsive
+type LatestValueBarProps = {
+      data: LightingAssetTimeSeriesData; //props.sampleData[props.sampleData.length-1]
+      metadata: MetricMetaData;
+      inSummaryBar: boolean;
+};
 
-export default function LatestValuesBar() {
+
+export default function LatestValuesBar(props: LatestValueBarProps) {
+
 
   return (
       <Card className="flex flex-col justify-evenly bg-primary-200 w-3/4 w-full" >
             <div className="py-4 m-auto text-auto">
-                  <p className="text-sm"> Latest Values</p>
+                  <p className="text-md"> Latest Values</p>
             </div>
-            <div className="flex flex-col content-center py-4 px-5 gap-2">
 
+            <div className="flex flex-col content-center py-4 px-5 gap-2">
                   <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-2'>
-                  <LatestValueBox 
-                        tooltipTitle={"What is Maintained Average Illuminance?"}
-                        tooltipContent={'Illuminance level lighting installations aim to provide'}
-                        latestValueTitle={"MA Illuminance"}
-                        latestValueNumber={50}
-                        latestValueUnit={"lux"} 
-                        dotColor={ColorOK.good}       
-                        inSummaryBar={true}     
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Uniformity Ratio Illuminance?"}
-                        tooltipContent={'Ratio of minimum to average or maximum illuminance'}
-                        latestValueTitle={"UR Illuminance"}
-                        latestValueNumber={5.0}
-                        latestValueUnit={"lux"} 
-                        dotColor={ColorOK.warning}       
-                        inSummaryBar={true}     
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Glare?"}
-                        tooltipContent={'Unified Glare Rating (UGR) - Numerical measure of glare in a particular environment'}
-                        latestValueTitle={"Glare"}
-                        latestValueNumber={4.0}
-                        dotColor={ColorOK.warning} 
-                        inSummaryBar={true}           
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Color Rendering?"}
-                        tooltipContent={"Measure of light source's ability to reveal colors accurately"}
-                        latestValueTitle={"Color Rendering"}
-                        latestValueNumber={180}
-                        latestValueUnit={"CRI"} 
-                        dotColor={ColorOK.good}
-                        inSummaryBar={true}            
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is CCT Temperature?"}
-                        tooltipContent={"Color appearance of light emitted by a lamp"}
-                        latestValueTitle={"CCT Color Temperature"}
-                        latestValueNumber={5500}
-                        latestValueUnit={"K"} 
-                        dotColor={ColorOK.warning}
-                        inSummaryBar={true}            
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Duv Color Temperature?"}
-                        tooltipContent={"Deviation from the black-body line in color space"}
-                        latestValueTitle={"Duv Color Temperature"}
-                        latestValueNumber={0}
-                        latestValueUnit={"K"} 
-                        dotColor={ColorOK.warning}
-                        inSummaryBar={true}            
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Flicker?"}
-                        tooltipContent={"Stroboscopic Visibility Measure (SVM) - Measure of visibility of stroboscopic effects"}
-                        latestValueTitle={"Flicker"}
-                        latestValueNumber={0.2}
-                        latestValueUnit={"Hz"} 
-                        dotColor={ColorOK.warning}
-                        inSummaryBar={true}            
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Color Preference?"}
-                        tooltipContent={"PVF"}
-                        latestValueTitle={"Color Preference"}
-                        latestValueNumber={78}
-                        latestValueUnit={""} 
-                        dotColor={ColorOK.tooLow}
-                        inSummaryBar={true}            
-                  />
-                  <LatestValueBox 
-                        tooltipTitle={"What is Photo Safety?"}
-                        tooltipContent={"Ultra Violet radiation"}
-                        latestValueTitle={"Photo Safety"}
-                        latestValueNumber={1.9}
-                        latestValueUnit={""} 
-                        dotColor={ColorOK.warning}
-                        inSummaryBar={true}            
-                  />
+                        {Object.entries(props.metadata).map(([metricKey, metaData]) => {
+                              const category = findCategoryMap[metricKey]
+                              const metricData = getNestedProperty(props.data, [category, metricKey])
+
+                              return (
+                                    <LatestValueBox
+                                          metricForID={`${metricKey}`} //will be used for modal ... "Go to [...] and close"
+                                          tooltipTitle={`${
+                                                (category=="illuminance"|| category=="colorTemperature") ? customFormatter(metricKey) : ''} 
+                                                ${category ? camelToTitleCase(category) : category}`
+                                          }
+                                          tooltipContent={metaData.tooltipSummary + ` Health status: ${metricData?.healthStatus}`}
+                                          latestValueTitle={`${
+                                                (category=="illuminance"|| category=="colorTemperature") ? customFormatter(metricKey) : ''} 
+                                                ${category ? camelToTitleCase(category):  category
+                                          }`}
+                                          latestValueNumber={metricData?.value}  
+                                          latestValueUnit={metaData.unit}
+                                          dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
+                                          inSummaryBar={true}
+                                    />
+                              )
+                        })
+                        }
                   </div>
             </div>
       </Card>
