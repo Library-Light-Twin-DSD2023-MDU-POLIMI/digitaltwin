@@ -25,3 +25,12 @@ export function camelToAbbreviation(input: string): string {
         return input;
     }
 }
+
+
+export function customFormatter(input: string): string {
+    if (/^[a-z]+[A-Z][a-z]*$/.test(input)) {
+        return camelToTitleCase(input);
+    } else {
+        return camelToAbbreviation(input);
+    }
+}
