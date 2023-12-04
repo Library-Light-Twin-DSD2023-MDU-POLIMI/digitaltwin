@@ -17,14 +17,12 @@ ChartJS.register(
   LineElement,
   Tooltip
 );
-import { formatDateTimestamp, formatDatestamp } from '../../utils/timeFormat';
-import { camelToAbbreviation, camelToTitleCase } from '../../utils/textFormat';
+import { formatDateTimestamp } from '../../utils/timeFormat';
+import { camelToTitleCase, customFormatter } from '../../utils/textFormat';
 import { LightingAssetTimeSeriesData } from '../../utils/typeDefs';
+import { getNestedProperty } from '../digitalTwin/page';
 
- 
-function getNestedProperty(obj: any, keys: string[]): any {
-  return keys.reduce((acc, key) => acc?.[key], obj);
-}
+
 
 
 type LineChartProps = {
@@ -33,15 +31,13 @@ type LineChartProps = {
   metricKey: string; // e.g., "maintainedAverage", ..
 };
 
-//ChartJS.defaults.color = '#a5d1e6';
-
 
 
 export default function LineChart(props: LineChartProps){  
 
   return (
     <div className='w-full text-center'>
-      {`${camelToAbbreviation(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
+      {`${customFormatter(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
 
       <div>
         <Line 
@@ -49,8 +45,8 @@ export default function LineChart(props: LineChartProps){
             labels: props.data.map((entry) => formatDateTimestamp(entry.timestamp)), 
             datasets: [
               {
-                label: `${camelToAbbreviation(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`,
-                data: props.data.map((entry) => getNestedProperty(entry, [props.categoryKey, props.metricKey])),
+                label: `${customFormatter(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`,
+                data: props.data.map((entry) => getNestedProperty(entry, [props.categoryKey, props.metricKey]).value),
                 tension: 0.1,
                 borderColor: (context) =>{
                   const ctx = context.chart.ctx;
