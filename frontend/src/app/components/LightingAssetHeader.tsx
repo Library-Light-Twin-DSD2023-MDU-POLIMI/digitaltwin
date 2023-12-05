@@ -10,7 +10,7 @@ export default function LightingAssetHeader() {
   return (
     <div>
         <div className="flex justify-between items-center py-10">
-            <div className="flex flex-col text-cyan-950">
+            <div className="flex flex-col text-foreground">
                 <p className="md:text-4xl text-2xl font-bold" id="digital_twin_name">Childrens' Area - Low Table</p>
                 <p className="text-lg font-italic" id="located_floor">1st Floor</p>
             </div>

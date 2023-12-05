@@ -7,27 +7,27 @@ export default function LightingAssetActions() {
     <ButtonGroup size="sm" className='grid lg:grid-cols-5 md:grid-cols-2'>
         <div className="px-1">
             <Tooltip content="Recomended Future Maintenence">
-                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><FlagIcon /></Button>
+                <Button size="sm" className="px-1  bg-primary-500" isIconOnly><FlagIcon/></Button>
             </Tooltip>
         </div>
         <div className="px-1">
             <Tooltip content="Shedule Maintanence">
-                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><WrenchScrewdriverIcon /></Button>
+                <Button size="sm" className="px-1 bg-primary-500" isIconOnly><WrenchScrewdriverIcon/></Button>
             </Tooltip>
         </div>
         <div className="px-1">
             <Tooltip content="Control Lighting Asset">
-                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><AdjustmentsHorizontalIcon /></Button>
+                <Button size="sm" className="px-1  bg-primary-500" isIconOnly><AdjustmentsHorizontalIcon/></Button>
             </Tooltip>
         </div>
         <div className="px-1">
             <Tooltip content="Remove Digital Twin">
-                <Button size="sm" className="px-1 bg-cyan-900" isIconOnly><TrashIcon /></Button>
+                <Button size="sm" className="px-1 bg-primary-500" isIconOnly><TrashIcon/></Button>
             </Tooltip>
         </div>
         <div className="px-1">
             <Tooltip content="Settings">
-                <Button size="sm" className="px-1  bg-cyan-900" isIconOnly><Cog6ToothIcon /></Button>
+                <Button size="sm" className="px-1  bg-primary-500" isIconOnly><Cog6ToothIcon/></Button>
             </Tooltip>
         </div>
     </ButtonGroup>
