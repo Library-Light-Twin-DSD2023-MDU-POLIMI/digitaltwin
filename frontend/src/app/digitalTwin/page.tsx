@@ -58,7 +58,7 @@ export function getNestedProperty(obj: any, keys: string[]): any {
 }
 
 
-//TODO: make selects trigger queries to the DB. Map LatestValueBox and Graphs for each metric.
+//TODO: make selects trigger queries to the DB
 
 
 export default function DigitalTwin() {

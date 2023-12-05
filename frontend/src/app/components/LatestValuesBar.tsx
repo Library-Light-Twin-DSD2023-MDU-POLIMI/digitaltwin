@@ -6,7 +6,7 @@ import { camelToTitleCase, customFormatter } from '@/utils/textFormat';
 import { findCategoryMap, findDotColor, getNestedProperty } from '../digitalTwin/page';
 
 type LatestValueBarProps = {
-      data: LightingAssetTimeSeriesData; //props.sampleData[props.sampleData.length-1]
+      data: LightingAssetTimeSeriesData; 
       metadata: MetricMetaData;
       inSummaryBar: boolean;
 };
@@ -41,7 +41,7 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
                                           }`}
                                           latestValueNumber={metricData?.value}  
                                           latestValueUnit={metaData.unit}
-                                          dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
+                                          dotColor={findDotColor[metricData?.healthStatus]} 
                                           inSummaryBar={true}
                                     />
                               )

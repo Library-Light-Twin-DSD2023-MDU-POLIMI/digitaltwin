@@ -47,7 +47,7 @@ export default function LatestValueBox(props: LatestValueBoxProps) {
                 >
                     <Chip 
                         className={props.inSummaryBar ? "text-sm font-bold content-center": "w-full font-bold content-center"} 
-                        color={props.dotColor} //TODO: cange color to be the same as currentStatus (currentStatus should be a parameter)
+                        color={props.dotColor} 
                         variant="dot" 
                     >
                         {props.latestValueTitle}
