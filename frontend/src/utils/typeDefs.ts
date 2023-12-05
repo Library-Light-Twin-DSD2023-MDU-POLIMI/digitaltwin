@@ -163,6 +163,52 @@ export type MetricMetaData =
   }
 }
 
+export type DigitalTwinAsset =
+{
+  timestamp: string,
+  assetId: string,
+  illuminance: {
+    maintainedAverage: number,
+    uniformityRatio: number
+  },
+  glare: {
+    UGR: number
+  },
+  colorRendering: {
+    CRI: number
+  },
+  colorTemperature: {
+    CCT: number,
+    Duv: number
+  },
+  flicker: {
+    SVM: number
+  },
+  colorPreference: {
+    PVF: number
+  },
+  photobiologicalSafety: {
+    UV: number
+  }
+}
+
+
+
+export type Asset =
+ {
+  uid: string;
+  currentStatus: string;
+  predictiveStatus: {
+            status: string,
+            predictedTime: number
+      },
+  location : {
+      floor: number,
+      section: string, 
+      area: string
+  }
+}
+
 
 /* "energy": {
   "unit": "Watt",

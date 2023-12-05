@@ -3,53 +3,12 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, Card, CardBody, CardHeader, Chip, Tooltip} from "@nextui-org/react";
 import { ExclamationCircleIcon, CheckCircleIcon, CalendarIcon, ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import { Asset, DigitalTwinAsset } from "@/utils/typeDefs";
 
-
-interface Asset {
-    uid: string,
-    currentStatus: string,
-    predictiveStatus: {
-              status: string,
-              predictedTime: number
-        },
-    location : {
-        floor: number,
-        section: string, 
-        area: string
-    }
-  }
-
-interface DigitalTwin {
-    timestamp: string,
-    assetId: string,
-    illuminance: {
-      maintainedAverage: number,
-      uniformityRatio: number
-    },
-    glare: {
-      UGR: number
-    },
-    colorRendering: {
-      CRI: number
-    },
-    colorTemperature: {
-      CCT: number,
-      Duv: number
-    },
-    flicker: {
-      SVM: number
-    },
-    colorPreference: {
-      PVF: number
-    },
-    photobiologicalSafety: {
-      UV: number
-    }
-}
 
 interface AssetProps {
   asset: Asset;
-  digitalTwin: DigitalTwin;
+  digitalTwin: DigitalTwinAsset;
 }
 
 const DigitalTwin: React.FC<AssetProps> = ({asset, digitalTwin}) => {
