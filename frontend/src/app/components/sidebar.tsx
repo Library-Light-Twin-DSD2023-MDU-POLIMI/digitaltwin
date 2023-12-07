@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
-import { LightBulbIcon, ChartPieIcon, BellAlertIcon, AdjustmentsHorizontalIcon, Cog6ToothIcon  } from '@heroicons/react/24/solid'
+import { LightBulbIcon, ChartPieIcon, BellAlertIcon, AdjustmentsHorizontalIcon, Cog6ToothIcon, WrenchScrewdriverIcon  } from '@heroicons/react/24/solid'
 import '../globals.css'
 
 
@@ -21,6 +21,7 @@ export default function Sidebar() {
   const sidebarOptions = [
     {name: "Asset Manager", href: "/assetManager", icon: LightBulbIcon, current: path==="/assetManager" ? true: false },
     {name: "Analytic Reports", href: "/analyticsReport", icon: ChartPieIcon, current: path==="/analyticsReport" ? true: false },
+    {name: "Workorders", href: "/workorders", icon: WrenchScrewdriverIcon, current: path==="/workorders" ? true: false },
     {name: "Preset Configuration", href: "/presets", icon: AdjustmentsHorizontalIcon, current: path==="/presets" ? true: false},
     {name: "Notifications", href: "/notification", icon: BellAlertIcon, Cocurrent: path==="/notification" ? true: false},
     {name: "Settings", href: "/settings", icon: Cog6ToothIcon, current: path==="/settings" ? true: false}
