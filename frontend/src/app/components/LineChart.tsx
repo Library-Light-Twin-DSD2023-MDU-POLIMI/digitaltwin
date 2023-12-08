@@ -29,61 +29,59 @@ type LineChartProps = {
 }
 
 export default function LineChart(props: LineChartProps) {
-  export default function LineChart(props: LineChartProps) {
-    return (
-      <div className="w-full text-center">
-        {`${customFormatter(props.metricKey)} ${camelToTitleCase(
-          props.categoryKey
-        )}`}
+  return (
+    <div className="w-full text-center">
+      {`${customFormatter(props.metricKey)} ${camelToTitleCase(
+        props.categoryKey
+      )}`}
 
-        <div>
-          <Line
-            data={{
-              labels: props.data.map(entry =>
-                formatDateTimestamp(entry.timestamp)
-              ),
-              datasets: [
-                {
-                  label: `${customFormatter(
-                    props.metricKey
-                  )} ${camelToTitleCase(props.categoryKey)}`,
-                  data: props.data.map(
-                    entry =>
-                      getNestedProperty(entry, [
-                        props.categoryKey,
-                        props.metricKey,
-                      ]).value
-                  ),
-                  tension: 0.1,
-                  borderColor: context => {
-                    const ctx = context.chart.ctx
-                    const gradient = ctx.createLinearGradient(
-                      0,
-                      ctx.canvas.height / 3,
-                      0,
-                      0
-                    ) //TODO: want the colors to be relative to thresholds...
-                    gradient.addColorStop(1, '#c542f5')
-                    gradient.addColorStop(0.7, 'green')
-                    gradient.addColorStop(0.3, 'yellow')
-                    gradient.addColorStop(0, 'red')
-                    return gradient
-                  },
-                },
-              ],
-            }}
-            options={{
-              responsive: true,
-              plugins: {
-                tooltip: {
-                  displayColors: false,
+      <div>
+        <Line
+          data={{
+            labels: props.data.map(entry =>
+              formatDateTimestamp(entry.timestamp)
+            ),
+            datasets: [
+              {
+                label: `${customFormatter(props.metricKey)} ${camelToTitleCase(
+                  props.categoryKey
+                )}`,
+                data: props.data.map(
+                  entry =>
+                    getNestedProperty(entry, [
+                      props.categoryKey,
+                      props.metricKey,
+                    ]).value
+                ),
+                tension: 0.1,
+                borderColor: context => {
+                  const ctx = context.chart.ctx
+                  const gradient = ctx.createLinearGradient(
+                    0,
+                    ctx.canvas.height / 3,
+                    0,
+                    0
+                  ) //TODO: want the colors to be relative to thresholds...
+                  gradient.addColorStop(1, '#c542f5')
+                  gradient.addColorStop(0.7, 'green')
+                  gradient.addColorStop(0.3, 'yellow')
+                  gradient.addColorStop(0, 'red')
+                  return gradient
                 },
               },
-            }}
-          />
-        </div>
+            ],
+          }}
+          options={{
+            responsive: true,
+            plugins: {
+              tooltip: {
+                displayColors: false,
+              },
+            },
+          }}
+        />
       </div>
-    )
-  }
+    </div>
+  )
 }
 // (...) from ${formatDatestamp(props.data[0].timestamp)} to ${formatDatestamp(props.data[props.data.length - 1].timestamp)}
