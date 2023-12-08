@@ -1,15 +1,5 @@
 'use client'
 
-import React from 'react'
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-} from '@nextui-org/react'
-
 export default function Header() {
   return (
     <div className="flex items-center bg-cyan-950 h-14">
