@@ -1,8 +1,13 @@
 export default {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Change this to .ts
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest', // Transform TypeScript files
   },
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testMatch: [
+    '**/?(*.)+(spec|test).ts?(x)', // Match test files
+  ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
 }

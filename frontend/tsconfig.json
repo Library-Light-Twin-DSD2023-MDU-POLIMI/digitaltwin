@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "jest.config.ts",
-    "jest.setup.ts" // Add this if it's a TypeScript file
+    "jest.setup.ts"
   ],
   "exclude": ["node_modules"]
 }
