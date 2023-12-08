@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState } from 'react'
-import DigitalTwin from './components/digitalTwin'
+import DigitalTwin from './components/DigitalTwin'
 import * as userData from './assets.json'
 import * as digitalTwin from './digitalTwin.json'
 import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { Button, Input, Select, SelectItem } from '@nextui-org/react'
-import AddTwin from './components/addTwin'
+import AddTwin from './components/AddTwin/AddTwin'
 
 interface Asset {
   uid: string
