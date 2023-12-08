@@ -5,34 +5,29 @@ export enum ColorOK {
   grey = 'default',
   primary = 'primary',
   tooHigh = 'secondary',
+  perfect = 'success',
   good = 'success',
-  warning = 'warning',
+  mid = 'warning',
+  tooLow2 = 'warning',
   tooLow = 'danger',
 }
 
-/* 
-export enum PlacementOK {
-    top = "top",
-    bottom = "bottom",
-    left = "left", 
-    right = "right"
-}
-*/
-
 interface LatestValueBoxProps {
+  metricForID: string
   tooltipTitle: string
   tooltipContent?: string
-  //tooltipPlacement: PlacementOK,
   latestValueTitle: string
   latestValueNumber: number
   latestValueUnit?: string
-  dotColor: ColorOK
+  dotColor: ColorOK //from healthStatus
   inSummaryBar: boolean
 }
 
 export default function LatestValueBox(props: LatestValueBoxProps) {
+  const customID = 'metricForID' + `${props.inSummaryBar ? '_inBar' : ''}`
+
   return (
-    <Card className="flex bg-cyan-950">
+    <Card id={customID} className="flex bg-primary-200">
       <CardHeader
         className={
           props.inSummaryBar
@@ -44,7 +39,7 @@ export default function LatestValueBox(props: LatestValueBoxProps) {
           <Tooltip
             showArrow
             placement={props.inSummaryBar ? 'bottom' : 'right'}
-            color="primary"
+            color="secondary"
             content={
               <div className="px-1 py-2">
                 <div className="text-small font-bold">{props.tooltipTitle}</div>

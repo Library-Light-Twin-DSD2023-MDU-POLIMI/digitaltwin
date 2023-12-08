@@ -1,13 +1,11 @@
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
-import { Button, Card, CardBody, Chip, Tooltip } from '@nextui-org/react'
-import React from 'react'
+import { Chip, Tooltip } from '@nextui-org/react'
 
 //TODO: add props, make responsive, add prediction model
 
 export default function StatusSummary() {
   return (
     <div className="flex flex-row gap-2">
-      <Chip color="success" className="w-auto bg-cyan-950" variant="dot">
+      <Chip color="success" className="w-auto bg-primary" variant="dot">
         Current Status
       </Chip>
       <a href="vg.no" target="_blank">
@@ -17,9 +15,9 @@ export default function StatusSummary() {
           showArrow
           placement="top"
           content="View predictions"
-          color="default"
+          color="secondary"
         >
-          <Chip color="warning" className="bg-cyan-950" variant="dot">
+          <Chip color="warning" className="bg-primary" variant="dot">
             Predicted Status in 1 week
           </Chip>
         </Tooltip>

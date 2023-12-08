@@ -1,15 +1,14 @@
 'use client'
 
-import React from 'react'
+import {
+  AdjustmentsHorizontalIcon,
+  BellAlertIcon,
+  ChartPieIcon,
+  Cog6ToothIcon,
+  LightBulbIcon,
+} from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  LightBulbIcon,
-  ChartPieIcon,
-  BellAlertIcon,
-  AdjustmentsHorizontalIcon,
-  Cog6ToothIcon,
-} from '@heroicons/react/24/solid'
 import '../globals.css'
 
 function classNames(...classes: string[]) {
@@ -58,9 +57,9 @@ export default function Sidebar() {
 
   return (
     <div id="sidebar">
-      <div className="w-60 h-full min-h-full">
+      <div className="w-60 h-full min-h-full drop-shadow-lg">
         <div
-          className="flex grow flex-col h-full gapy-y-5 overflow-y-auto bg-cyan-950 bg-blend-darken px-4 pb-4 border-r-2"
+          className="flex grow flex-col h-full gapy-y-5 overflow-y-auto bg-primary px-4 pb-4"
           style={{ minHeight: '100vh' }}
         >
           <nav
@@ -82,8 +81,8 @@ export default function Sidebar() {
                         href={option.href}
                         className={classNames(
                           option.current
-                            ? 'bg-cyan-900 text-white  hover:text-white'
-                            : 'text-gray-400 hover:text-white hover:bg-cyan-900 bg-cyan-900',
+                            ? 'text-primary bg-primary-700 hover:text-background'
+                            : 'hover:bg-primary-700 hover:text-primary bg-primary-800',
                           'group flex gap-x-3 rounded-md p-4 text-sm leading-6 font-semibold'
                         )}
                       >
