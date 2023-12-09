@@ -37,7 +37,7 @@ export default function Sidebar() {
       current: path === '/analyticsReport' ? true : false,
     },
     {name: "Workorders",
-    ref: "/workorders",
+    href: "/workorders",
     icon: WrenchScrewdriverIcon,
     current: path==="/workorders" ? true: false },
     {
