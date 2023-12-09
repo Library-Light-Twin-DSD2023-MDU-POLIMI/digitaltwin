@@ -1,9 +1,23 @@
-import { WrenchScrewdriverIcon, FlagIcon, AdjustmentsHorizontalIcon, TrashIcon, Cog6ToothIcon , PencilSquareIcon, LinkIcon} from '@heroicons/react/24/outline'
-import { ButtonGroup, Button, Tooltip, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react'
-import React, { useState } from 'react'
+import { 
+    AdjustmentsHorizontalIcon,
+    Cog6ToothIcon,
+    FlagIcon,
+    TrashIcon,
+    WrenchScrewdriverIcon,
+    PencilSquareIcon,
+    LinkIcon
+} from '@heroicons/react/24/outline'
+import { 
+    ButtonGroup,
+    Button,
+    Tooltip,
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownItem 
+} from '@nextui-org/react'
 import ReportWorkorder from './ReportWorkorder';
 import LinkedWorkorders from './LinkedWorkorders';
-import assets from '../assets.json'
 
 //TODO: add props to ReportWorkorder
 
