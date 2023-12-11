@@ -21,6 +21,7 @@ import { formatDateTimestamp } from '../../utils/timeFormat';
 import { camelToTitleCase, customFormatter } from '../../utils/textFormat';
 import { LightingAssetTimeSeriesData } from '../../utils/typeDefs';
 import { getNestedProperty } from '../digitalTwin/page';
+import { useEffect } from 'react';
 
 
 
@@ -32,6 +33,8 @@ type LineChartProps = {
 };
 
 
+
+
 const isBrowser = typeof window !== 'undefined';
 const isDarkTheme = isBrowser && window.matchMedia('(prefers-color-scheme: dark)').matches;
 const textColor = isDarkTheme ? '#ffffff' : '#000000'; 
@@ -39,6 +42,24 @@ const textColor = isDarkTheme ? '#ffffff' : '#000000';
 
 
 export default function LineChart(props: LineChartProps){  
+
+
+  //TODO: ensure the reload does not refetch data
+  useEffect(() => {
+    const handleChanges = () => {
+      window.location.reload();
+    };
+
+    const themeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    themeWatcher.addEventListener('change', handleChanges);
+    window.addEventListener('resize', handleChanges);
+
+    return () => {
+      themeWatcher.removeEventListener('change', handleChanges);
+      window.removeEventListener('resize', handleChanges);
+    };
+  }, []);
 
   return (
     <div className='w-full text-center'>
