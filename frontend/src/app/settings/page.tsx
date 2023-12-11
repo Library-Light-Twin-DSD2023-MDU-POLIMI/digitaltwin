@@ -1,5 +1,3 @@
 export default function Presets() {
-    return <div>
-       Settings
-    </div>
+  return <div>Settings</div>
 }

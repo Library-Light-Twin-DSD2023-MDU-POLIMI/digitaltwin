@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
 import {
-  Chart as ChartJS,
   CategoryScale,
+  Chart as ChartJS,
   LinearScale,
-  Tooltip,
+  LineElement,
   PointElement,
   LineElement, 
 } from 'chart.js';
@@ -62,32 +62,49 @@ export default function LineChart(props: LineChartProps){
   }, []);
 
   return (
-    <div className='w-full text-center'>
-      {`${customFormatter(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`}
+    <div className="w-full text-center">
+      {`${customFormatter(props.metricKey)} ${camelToTitleCase(
+        props.categoryKey
+      )}`}
 
       <div>
-        <Line 
+        <Line
           data={{
-            labels: props.data.map((entry) => formatDateTimestamp(entry.timestamp)), 
+            labels: props.data.map(entry =>
+              formatDateTimestamp(entry.timestamp)
+            ),
             datasets: [
               {
-                label: `${customFormatter(props.metricKey)} ${camelToTitleCase(props.categoryKey)}`,
-                data: props.data.map((entry) => getNestedProperty(entry, [props.categoryKey, props.metricKey]).value),
+                label: `${customFormatter(props.metricKey)} ${camelToTitleCase(
+                  props.categoryKey
+                )}`,
+                data: props.data.map(
+                  entry =>
+                    getNestedProperty(entry, [
+                      props.categoryKey,
+                      props.metricKey,
+                    ]).value
+                ),
                 tension: 0.1,
-                borderColor: (context) =>{
-                  const ctx = context.chart.ctx;
-                  const gradient = ctx.createLinearGradient(0, ctx.canvas.height/3, 0, 0); //TODO: want the colors to be relative to thresholds...
-                  gradient.addColorStop(1, '#c542f5');
-                  gradient.addColorStop(0.70, 'green');
-                  gradient.addColorStop(0.30, 'yellow');
-                  gradient.addColorStop(0, 'red');
-                  return gradient;
+                borderColor: context => {
+                  const ctx = context.chart.ctx
+                  const gradient = ctx.createLinearGradient(
+                    0,
+                    ctx.canvas.height / 3,
+                    0,
+                    0
+                  ) //TODO: want the colors to be relative to thresholds...
+                  gradient.addColorStop(1, '#c542f5')
+                  gradient.addColorStop(0.7, 'green')
+                  gradient.addColorStop(0.3, 'yellow')
+                  gradient.addColorStop(0, 'red')
+                  return gradient
                 },
               },
             ],
           }}
           options={{
-            responsive: true, 
+            responsive: true,
             plugins: {
               tooltip: {
                 displayColors: false,
@@ -108,9 +125,8 @@ export default function LineChart(props: LineChartProps){
           }} 
         />
       </div>
-
     </div>
-  );
+  )
 }
 
 
