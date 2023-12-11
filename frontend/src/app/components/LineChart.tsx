@@ -32,6 +32,11 @@ type LineChartProps = {
 };
 
 
+const isBrowser = typeof window !== 'undefined';
+const isDarkTheme = isBrowser && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const textColor = isDarkTheme ? '#ffffff' : '#000000'; 
+
+
 
 export default function LineChart(props: LineChartProps){  
 
@@ -67,6 +72,18 @@ export default function LineChart(props: LineChartProps){
                 displayColors: false,
               },
             },
+            scales: {
+              y: {
+                  ticks: {
+                      color: textColor 
+                  }
+              },
+              x: {
+                  ticks: {
+                      color: textColor 
+                  }
+              }
+          }
           }} 
         />
       </div>
