@@ -125,12 +125,12 @@ export default function DigitalTwin() {
                         ? customFormatter(metricKey)
                         : ''
                     } 
-                                            ${
-                                              category
-                                                ? camelToTitleCase(category)
-                                                : category
-                                            }
-                                        `}
+                            ${
+                                category
+                                ? camelToTitleCase(category)
+                                : category
+                            }
+                        `}
                     tooltipContent={
                       metaData.tooltipSummary +
                       ` Health status: ${metricData?.healthStatus}`
@@ -141,14 +141,16 @@ export default function DigitalTwin() {
                         ? camelToAbbreviation(metricKey)
                         : ''
                     } 
-                                            ${
-                                              category
-                                                ? category == 'colorTemperature'
-                                                  ? 'Color Temp'
-                                                  : camelToTitleCase(category)
-                                                : category
-                                            }
-                                        `}
+                            ${
+                                category
+                                ? category === 'colorTemperature'
+                                    ? 'Color Temp'
+                                    : category === 'photobiologicalSafety'
+                                    ? 'Photo safety'
+                                    : camelToTitleCase(category)
+                                : category
+                            }
+                        `}
                     latestValueNumber={metricData?.value}
                     latestValueUnit={metaData.unit}
                     dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
