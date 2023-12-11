@@ -6,9 +6,14 @@ import {
   LinearScale,
   LineElement,
   PointElement,
-  LineElement, 
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+  Tooltip,
+} from 'chart.js'
+import { Line } from 'react-chartjs-2'
+import { camelToTitleCase, customFormatter } from '../../utils/textFormat'
+import { formatDateTimestamp } from '../../utils/timeFormat'
+import { LightingAssetTimeSeriesData } from '../../utils/typeDefs'
+import { getNestedProperty } from '../digitalTwin/page'
+import { useEffect } from 'react'
 
 ChartJS.register(
   CategoryScale, // x
@@ -16,14 +21,7 @@ ChartJS.register(
   PointElement,
   LineElement,
   Tooltip
-);
-import { formatDateTimestamp } from '../../utils/timeFormat';
-import { camelToTitleCase, customFormatter } from '../../utils/textFormat';
-import { LightingAssetTimeSeriesData } from '../../utils/typeDefs';
-import { getNestedProperty } from '../digitalTwin/page';
-import { useEffect } from 'react';
-
-
+)
 
 
 type LineChartProps = {
