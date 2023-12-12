@@ -8,7 +8,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Illuminance level lighting installations aim to provide.",
     "tooltipSummary": "Illuminance level lighting installations aim to provide."
   },
   "uniformityRatio": {
@@ -20,7 +20,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Ratio of minimum to average or maximum illuminance.",
     "tooltipSummary": "Ratio of minimum to average or maximum illuminance."
   },
   "UGR": {
@@ -41,7 +41,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Measure of light source's ability to reveal colors accurately.",
     "tooltipSummary": "Measure of light source's ability to reveal colors accurately."
   },
   "CCT": {
@@ -51,7 +51,7 @@
       "mid": "3",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Color appearance of light emitted by a lamp.",
     "tooltipSummary": "Color appearance of light emitted by a lamp."
   },
   "Duv": {
@@ -61,7 +61,7 @@
       "mid": "3",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Deviation from the black-body line in color space.",
     "tooltipSummary": "Deviation from the black-body line in color space."
   },
   "SVM": {
@@ -72,7 +72,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "The Hz corresponds to Stroboscopic Visibility Measure (SVM) - a measure of visibility of stroboscopic effects.",
     "tooltipSummary": "Flicker. Stroboscopic Visibility Measure (SVM) - Measure of visibility of stroboscopic effects."
   },
   "PVF": {
@@ -84,7 +84,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal.",
+    "information": "Color Preference.",
     "tooltipSummary": "Color Preference."
   },
   "UV": {
@@ -94,7 +94,7 @@
       "mid": "2",
       "tooLow": "1"
     },
-    "information": "long - to go in Modal",
+    "information": "Ultra Violet radiation",
     "tooltipSummary": "Ultra Violet radiation."
   }
 }

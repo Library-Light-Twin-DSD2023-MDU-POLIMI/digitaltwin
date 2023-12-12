@@ -8,7 +8,7 @@ import {
     Button,
     Chip, 
 } from "@nextui-org/react";
-import { camelToTitleCase, customFormatter } from '@/utils/textFormat';
+import { camelToTitleCase, customFormatter, formatSubscripts } from '@/utils/textFormat';
 import { ColorOK } from './LatestValueBox';
 
 type MetricInfoModalProps = {
@@ -91,7 +91,7 @@ export default function MetricInfoModal(props: MetricInfoModalProps) {
                         }
                         
                         >
-                        <i>Current value:</i> {props.latestValue} {props.unit}
+                        <i>Current value:</i> {props.latestValue} {formatSubscripts(props.unit)}
                     </Chip>
                     <>
                         <div className="font-bold text-md pt-[2vh]"> Health state values - overview</div>

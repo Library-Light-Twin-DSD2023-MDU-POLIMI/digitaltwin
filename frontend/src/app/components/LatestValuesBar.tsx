@@ -1,6 +1,6 @@
-import { camelToTitleCase, customFormatter } from '@/utils/textFormat'
+import { camelToTitleCase, customFormatter, formatSubscripts } from '@/utils/textFormat'
 import { LightingAssetTimeSeriesData, MetricMetaData } from '@/utils/typeDefs'
-import { Button, Card, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/react'
+import { Card, useDisclosure } from '@nextui-org/react'
 import {
   findCategoryMap,
   findDotColor,
@@ -76,7 +76,7 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
                         : category
                     }`}
                   latestValueNumber={metricData?.value}
-                  latestValueUnit={metaData.unit}
+                  latestValueUnit={formatSubscripts(metaData.unit)}
                   dotColor={findDotColor[metricData?.healthStatus]}
                   inSummaryBar={true}
                   openModal={() => handleOpenModal(metricKey)}  
@@ -88,7 +88,7 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
                   category={category} 
                   metricKey={metricKey}
                   latestValue={metricData?.value} 
-                  unit={metaData.unit} 
+                  unit={formatSubscripts(metaData.unit)} 
                   currentHealthStatus={metricData?.healthStatus}
                   dotColor={findDotColor[metricData?.healthStatus]}
                   scale={metaData.scale} 

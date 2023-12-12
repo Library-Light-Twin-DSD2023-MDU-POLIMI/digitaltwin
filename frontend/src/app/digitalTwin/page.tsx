@@ -9,6 +9,7 @@ import {
   camelToAbbreviation,
   camelToTitleCase,
   customFormatter,
+  formatSubscripts,
 } from '@/utils/textFormat'
 import LatestValueBox, { ColorOK } from '../components/LatestValueBox'
 import LatestValuesBar from '../components/LatestValuesBar'
@@ -167,7 +168,7 @@ export default function DigitalTwin() {
                             }
                         `}
                     latestValueNumber={metricData?.value}
-                    latestValueUnit={metaData.unit}
+                    latestValueUnit={formatSubscripts(metaData.unit)}
                     dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
                     inSummaryBar={false}
                     openModal={() => handleOpenModal(metricKey)} 
