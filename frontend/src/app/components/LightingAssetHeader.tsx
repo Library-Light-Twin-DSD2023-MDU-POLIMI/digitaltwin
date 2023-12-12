@@ -30,7 +30,6 @@ export default function LightingAssetHeader() {
           </div>
           <LightingAssetActions />
         </div>
-        <LightingAssetActions />
       </div>
       <StatusSummary />
     </div>
