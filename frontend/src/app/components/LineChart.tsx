@@ -64,7 +64,7 @@ export default function LineChart(props: LineChartProps){
       window.removeEventListener('resize', handleChanges);
     };
   }, []);
-s
+
 
 
   return (
