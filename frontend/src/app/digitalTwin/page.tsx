@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, CardBody, Select, SelectItem } from '@nextui-org/react'
+import { Card, CardBody, Select, SelectItem, useDisclosure } from '@nextui-org/react'
 
 import sampleData from '../../utils/sampleData.json'
 import metricData from '../../utils/sampleMetricMetaData.json'
@@ -14,6 +14,8 @@ import LatestValueBox, { ColorOK } from '../components/LatestValueBox'
 import LatestValuesBar from '../components/LatestValuesBar'
 import LightingAssetHeader from '../components/LightingAssetHeader'
 import LineChart from '../components/LineChart'
+import { useState } from 'react'
+import MetricInfoModal from '../components/MetricInfoModal'
 
 export enum FindCategory {
   maintainedAverage = 'illuminance',
@@ -51,9 +53,22 @@ export function getNestedProperty(obj: any, keys: string[]): any {
   return keys.reduce((acc, key) => acc?.[key], obj)
 }
 
+
+
 //TODO: make selects trigger queries to the DB
 
 export default function DigitalTwin() {
+  const [openModalKey, setOpenModalKey] = useState<string | null>(null);
+  const { onClose } = useDisclosure();
+
+  const handleOpenModal = (key: string) => {
+    setOpenModalKey(key);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModalKey(null);
+  };
+  
   return (
     <div className="px-10 flex flex-col gap-4 rounded-lg w-7/9 h-full">
       <LightingAssetHeader />
@@ -118,7 +133,7 @@ export default function DigitalTwin() {
               <div className="flex px-2 py-2 gap-2 grid-cols-2">
                 <div className="w-[13vw] items-center pl-2">
                   <LatestValueBox
-                    metricForID={`${metricKey}`} //will be used for modal ... "Go to [...] and close"
+                    //metricForID={`${metricKey}`} //will be used for modal ... "Go to [...] and close"
                     tooltipTitle={`${
                       category == 'illuminance' ||
                       category == 'colorTemperature'
@@ -154,6 +169,22 @@ export default function DigitalTwin() {
                     latestValueNumber={metricData?.value}
                     latestValueUnit={metaData.unit}
                     dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
+                    inSummaryBar={false}
+                    openModal={() => handleOpenModal(metricKey)} 
+                  />
+                    <MetricInfoModal 
+                    isOpen={openModalKey === metricKey} 
+                    onClose={handleCloseModal} 
+                    action = {onClose}
+                    category={category} 
+                    metricKey={metricKey}
+                    latestValue={metricData?.value} 
+                    unit={metaData.unit} 
+                    currentHealthStatus={metricData?.healthStatus}
+                    dotColor={findDotColor[metricData?.healthStatus]}
+                    scale={metaData.scale} 
+                    information={metaData.information} 
+                    tooltipSummary={metaData.tooltipSummary}
                     inSummaryBar={false}
                   />
                 </div>

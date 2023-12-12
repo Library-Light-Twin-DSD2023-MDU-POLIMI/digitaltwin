@@ -26,9 +26,9 @@
   "UGR": {
     "unit": "UGR_L",
     "scale": {
-      "good": "4",
-      "mid": "3",
-      "tooLow2": "2",
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
       "tooLow": "1"
     },
     "information": "Standard SS-EN 12565-1, ljus och rum. Variables between 10(best)-30(worst). Assumption: Glare needs to be avoided to ensure a good working environment. A glare rating lower than standard is desired. ",
