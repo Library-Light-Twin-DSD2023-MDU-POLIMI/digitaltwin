@@ -25,14 +25,14 @@ export default function LinkedWorkorders() {
                   </TableHeader>
                   <TableBody>
                     <TableRow key="1">
-                      <TableCell>WO 0001</TableCell>
+                      <TableCell>WO 0003</TableCell>
                       <TableCell>
                         <Chip variant="dot" color="default" className="border-none"> Scheduled</Chip>
                       </TableCell>
                       <TableCell>20/12/2023 10:30</TableCell>
                     </TableRow>
                     <TableRow key="2">
-                      <TableCell>WO 0001</TableCell>
+                      <TableCell>WO 0002</TableCell>
                       <TableCell>
                         <Chip variant="dot" color="danger" className="border-none"> Not Compleated</Chip>
                       </TableCell>
