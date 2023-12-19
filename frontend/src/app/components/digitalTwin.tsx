@@ -1,21 +1,7 @@
 'use client'
 
-import React, { useState } from 'react'
-import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardHeader,
-  Chip,
-  Tooltip,
-} from '@nextui-org/react'
-import {
-  ExclamationCircleIcon,
-  CheckCircleIcon,
-  CalendarIcon,
-  ArrowTopRightOnSquareIcon,
-} from '@heroicons/react/24/solid'
+import { Card, CardBody, Chip } from '@nextui-org/react'
+import React from 'react'
 
 interface Asset {
   uid: string
