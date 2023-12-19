@@ -86,9 +86,9 @@ export type MetricMetaData = {
   UGR: {
     unit: string
     scale: {
-      good: string //4
-      mid: string //3
-      tooLow2: string //2
+      perfect: string //4
+      good: string //3
+      mid: string //2
       tooLow: string //1
     }
     information: string

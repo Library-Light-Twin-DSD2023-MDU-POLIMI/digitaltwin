@@ -13,6 +13,13 @@ import { camelToTitleCase, customFormatter } from '../../utils/textFormat'
 import { formatDateTimestamp } from '../../utils/timeFormat'
 import { LightingAssetTimeSeriesData } from '../../utils/typeDefs'
 import { getNestedProperty } from '../digitalTwin/page'
+import { useEffect } from 'react'
+
+
+
+
+
+
 
 ChartJS.register(
   CategoryScale, // x
@@ -23,12 +30,43 @@ ChartJS.register(
 )
 
 type LineChartProps = {
-  data: LightingAssetTimeSeriesData[]
-  categoryKey: string // e.g., "illuminance", "glare", ..
-  metricKey: string // e.g., "maintainedAverage", ..
-}
+  data: LightingAssetTimeSeriesData[]; 
+  categoryKey: string; // e.g., "illuminance", "glare", ..
+  metricKey: string; // e.g., "maintainedAverage", ..
+};
 
-export default function LineChart(props: LineChartProps) {
+
+const isBrowser = typeof window !== 'undefined';
+const isDarkTheme = isBrowser && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const textColor = isDarkTheme ? '#ffffff' : '#000000'; 
+
+
+
+
+
+
+
+
+export default function LineChart(props: LineChartProps){  
+
+  //TODO: ensure the reload does not refetch data
+  useEffect(() => {
+    const handleChanges = () => {
+      window.location.reload();
+    };
+    const themeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    themeWatcher.addEventListener('change', handleChanges);
+    window.addEventListener('resize', handleChanges);
+
+    return () => {
+      themeWatcher.removeEventListener('change', handleChanges);
+      window.removeEventListener('resize', handleChanges);
+    };
+  }, []);
+
+
+
   return (
     <div className="w-full text-center">
       {`${customFormatter(props.metricKey)} ${camelToTitleCase(
@@ -37,6 +75,7 @@ export default function LineChart(props: LineChartProps) {
 
       <div>
         <Line
+          id={props.metricKey + "LineChart"}
           data={{
             labels: props.data.map(entry =>
               formatDateTimestamp(entry.timestamp)
@@ -78,10 +117,21 @@ export default function LineChart(props: LineChartProps) {
                 displayColors: false,
               },
             },
-          }}
+            scales: {
+              y: {
+                  ticks: {
+                      color: textColor 
+                  }
+              },
+              x: {
+                  ticks: {
+                      color: textColor 
+                  }
+              }
+          }
+          }} 
         />
       </div>
     </div>
   )
 }
-// (...) from ${formatDatestamp(props.data[0].timestamp)} to ${formatDatestamp(props.data[props.data.length - 1].timestamp)}
