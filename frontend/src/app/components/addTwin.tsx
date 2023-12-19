@@ -28,7 +28,7 @@ export default function AddTwin() {
     >
       <CardHeader className="flex justify-between items-center">
         <p className="text-md text-2xl">Add a new digital twin</p>
-        <Button isIconOnly onPress={hideCard}>
+        <Button isIconOnly onPress={hideCard} data-testid="close-button">
           <XMarkIcon />
         </Button>
       </CardHeader>
