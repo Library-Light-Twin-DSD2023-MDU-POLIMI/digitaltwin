@@ -11,8 +11,8 @@ import {
   Textarea,
 } from '@nextui-org/react'
 import { Select, SelectItem } from '@nextui-org/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import '../globals.css'
+import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon'
 
 export default function AddTwin() {
   /* TODO: Add a global state to handle visibility, not in both home and here. */
