@@ -6,6 +6,7 @@ import {
   ChartPieIcon,
   Cog6ToothIcon,
   LightBulbIcon,
+  WrenchScrewdriverIcon
 } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -35,6 +36,10 @@ export default function Sidebar() {
       icon: ChartPieIcon,
       current: path === '/analyticsReport' ? true : false,
     },
+    {name: "Workorders",
+    href: "/workorders",
+    icon: WrenchScrewdriverIcon,
+    current: path==="/workorders" ? true: false },
     {
       name: 'Preset Configuration',
       href: '/presets',
