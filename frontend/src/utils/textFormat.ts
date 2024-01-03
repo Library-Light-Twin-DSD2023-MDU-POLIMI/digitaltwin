@@ -37,7 +37,7 @@ export function customFormatter(input: string): string {
 
 export function formatSubscripts(input: string) {
   return input.replace(/_(\w|\d)/g, (match, p1) => {
-    const lowercaseChar = p1.toLowerCase();
+    const lowercaseChar = p1.toLowerCase()
 
     const subscriptMap = {
       '0': '₀',
@@ -64,8 +64,8 @@ export function formatSubscripts(input: string) {
       s: 'ₛ',
       t: 'ₜ',
       x: 'ₓ',
-    };
+    }
 
-    return subscriptMap[lowercaseChar] || match;
-  });
+    return subscriptMap[lowercaseChar] || match
+  })
 }
