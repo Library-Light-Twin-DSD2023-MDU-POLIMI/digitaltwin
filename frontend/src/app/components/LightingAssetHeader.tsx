@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  ButtonGroup,
-  Button,
-  CardBody,
-  Tooltip,
-} from '@nextui-org/react'
+
 import React from 'react'
 import LightingAssetActions from './LightingAssetActions'
 import StatusSummary from './StatusSummary'
@@ -30,7 +23,6 @@ export default function LightingAssetHeader() {
           </div>
           <LightingAssetActions />
         </div>
-        <LightingAssetActions />
       </div>
       <StatusSummary />
     </div>

@@ -1,5 +1,13 @@
-import { Card, CardHeader, Chip, CardBody, Tooltip } from '@nextui-org/react'
+import { 
+  Card, 
+  CardHeader, 
+  Chip, 
+  CardBody, 
+  Tooltip 
+} from '@nextui-org/react'
 import React from 'react'
+
+
 
 export enum ColorOK {
   grey = 'default',
@@ -13,7 +21,6 @@ export enum ColorOK {
 }
 
 interface LatestValueBoxProps {
-  metricForID: string
   tooltipTitle: string
   tooltipContent?: string
   latestValueTitle: string
@@ -21,13 +28,13 @@ interface LatestValueBoxProps {
   latestValueUnit?: string
   dotColor: ColorOK //from healthStatus
   inSummaryBar: boolean
+  openModal?: () => void;
 }
 
 export default function LatestValueBox(props: LatestValueBoxProps) {
-  const customID = 'metricForID' + `${props.inSummaryBar ? '_inBar' : ''}`
 
   return (
-    <Card id={customID} className="flex bg-primary-200">
+    <Card className="flex bg-primary-200" >
       <CardHeader
         className={
           props.inSummaryBar
@@ -55,6 +62,7 @@ export default function LatestValueBox(props: LatestValueBoxProps) {
               }
               color={props.dotColor}
               variant="dot"
+              onClick={props.openModal}
             >
               {props.latestValueTitle}
             </Chip>
