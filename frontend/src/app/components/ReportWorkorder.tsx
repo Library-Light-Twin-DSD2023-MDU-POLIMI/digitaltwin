@@ -9,7 +9,7 @@ import {
   useDisclosure,
   Tooltip,
 } from '@nextui-org/react'
-import { WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
+import WrenchScrewdriverIcon from '@heroicons/react/24/outline/WrenchScrewdriverIcon'
 import { Input, Textarea } from '@nextui-org/react'
 
 export default function ReportWorkorder() {
@@ -76,6 +76,7 @@ export default function ReportWorkorder() {
                       base: 'max-w-md',
                       input: 'resize-y min-h-[40px]',
                     }}
+                    data-testid="issue-description"
                   />
                 </div>
                 <div>
@@ -86,6 +87,7 @@ export default function ReportWorkorder() {
                       base: 'max-w-md',
                       input: 'resize-y min-h-[40px]',
                     }}
+                    data-testid="comments" // Add this line
                   />
                 </div>
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
@@ -94,17 +96,23 @@ export default function ReportWorkorder() {
                     label="Maintenance Date"
                     type="date"
                     defaultValue="2023-01-01"
+                    data-testid="maintenance-date" // Add this line
                   />
                   <Input
                     id="time"
                     label="Maintenance Time"
                     type="time"
                     defaultValue="00:00"
+                    data-testid="maintenance-time" // Add this line
                   />
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="primary" onPress={onClose}>
+                <Button
+                  color="primary"
+                  onPress={onClose}
+                  data-testid="send-workorder-button"
+                >
                   Send Workorder
                 </Button>
               </ModalFooter>
