@@ -24,11 +24,10 @@ import {
   floorOptions,
   sectionOptions,
 } from '../workorder.json'
-import {
-  PencilSquareIcon,
-  ChevronDownIcon,
-  ArrowTopRightOnSquareIcon,
-} from '@heroicons/react/24/solid'
+
+import PencilSquareIcon from '@heroicons/react/24/solid/PencilSquareIcon'
+import ChevronDownIcon from '@heroicons/react/24/solid/ChevronDownIcon'
+import ArrowTopRightOnSquareIcon from '@heroicons/react/24/solid/ArrowTopRightOnSquareIcon'
 
 const statusColorMap: Record<string, ChipProps['color']> = {
   compleated: 'success',
@@ -265,6 +264,7 @@ export default function WorkorderTable() {
               base: 'w-full sm:max-w-[44%]',
               inputWrapper: 'border-1',
             }}
+            data-testid="search-input"
             placeholder="Search by Workorder ID or Asset ID..."
             size="sm"
             value={filterValue}
