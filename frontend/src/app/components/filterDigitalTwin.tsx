@@ -1,14 +1,8 @@
 'use client'
 
-import React from 'react'
-import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
-import {
-  Select,
-  SelectSection,
-  SelectItem,
-  Input,
-  Button,
-} from '@nextui-org/react'
+import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassCircleIcon'
+import PlusIcon from '@heroicons/react/24/solid/PlusIcon'
+import { Button, Input, Select, SelectItem } from '@nextui-org/react'
 
 export default function FilterDigitalTwin() {
   return (
@@ -18,7 +12,6 @@ export default function FilterDigitalTwin() {
         marginLeft: '80px',
         marginTop: '50px',
         marginRight: '60px',
-        marginBottom: '40px',
       }}
     >
       <Input
@@ -31,42 +24,36 @@ export default function FilterDigitalTwin() {
         className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4"
         style={{ width: '100%', maxWidth: '1000px' }}
       >
-        <Select label="Floor" className="max-w-xs">
+        <Select label="Floor" className="max-w-xs" data-testid="floor-select">
           <SelectItem key={''}>Floor 0</SelectItem>
           <SelectItem key={''}>Floor 1</SelectItem>
           <SelectItem key={''}>Floor 2</SelectItem>
-          <SelectItem key={''}>Floor 3</SelectItem>
         </Select>
         <Select label="Section" className="max-w-xs">
           <SelectItem key={''}>Section 1</SelectItem>
           <SelectItem key={''}>Section 2</SelectItem>
           <SelectItem key={''}>Section 3</SelectItem>
         </Select>
-
         <Select label="Current status" className="max-w-xs">
           <SelectItem key={''}>Good</SelectItem>
           <SelectItem key={''}>Warning</SelectItem>
           <SelectItem key={''}>Broke</SelectItem>
         </Select>
-
         <Select label="Predicted status" className="max-w-xs">
           <SelectItem key={''}>Good</SelectItem>
           <SelectItem key={''}>Warning</SelectItem>
           <SelectItem key={''}>Broke</SelectItem>
         </Select>
-
         <Select label="Critical Level" className="max-w-xs">
           <SelectItem key={''}>I</SelectItem>
           <SelectItem key={''}>II</SelectItem>
         </Select>
-
         <Button
           name="applyButton"
           style={{ backgroundColor: '#07C075', color: 'white' }}
         >
           Apply
         </Button>
-
         <Button
           isIconOnly
           style={{ backgroundColor: '#07C075', color: 'white' }}

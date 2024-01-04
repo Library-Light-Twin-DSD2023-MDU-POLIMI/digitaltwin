@@ -1,4 +1,8 @@
-import { camelToTitleCase, customFormatter, formatSubscripts } from '@/utils/textFormat'
+import {
+  camelToTitleCase,
+  customFormatter,
+  formatSubscripts,
+} from '@/utils/textFormat'
 import { LightingAssetTimeSeriesData, MetricMetaData } from '@/utils/typeDefs'
 import { Card, useDisclosure } from '@nextui-org/react'
 import {
@@ -16,21 +20,17 @@ type LatestValueBarProps = {
   inSummaryBar: boolean
 }
 
-
-
-
 export default function LatestValuesBar(props: LatestValueBarProps) {
-  const { onClose } = useDisclosure();
-  const [openModalKey, setOpenModalKey] = useState<string | null>(null);
+  const { onClose } = useDisclosure()
+  const [openModalKey, setOpenModalKey] = useState<string | null>(null)
 
   const handleOpenModal = (key: string) => {
-    setOpenModalKey(key);
-  };
+    setOpenModalKey(key)
+  }
 
   const handleCloseModal = () => {
-    setOpenModalKey(null);
-  };
-
+    setOpenModalKey(null)
+  }
 
   return (
     <Card className="flex flex-col justify-evenly bg-primary-200 w-3/4 w-full">
@@ -56,11 +56,7 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
                       ? customFormatter(metricKey)
                       : ''
                   } 
-                    ${
-                      category
-                        ? camelToTitleCase(category)
-                        : category
-                    }`}
+                    ${category ? camelToTitleCase(category) : category}`}
                   tooltipContent={
                     metaData.tooltipSummary +
                     ` Health status: ${metricData?.healthStatus}`
@@ -70,32 +66,28 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
                       ? customFormatter(metricKey)
                       : ''
                   } 
-                    ${
-                      category
-                        ? camelToTitleCase(category)
-                        : category
-                    }`}
+                    ${category ? camelToTitleCase(category) : category}`}
                   latestValueNumber={metricData?.value}
                   latestValueUnit={formatSubscripts(metaData.unit)}
                   dotColor={findDotColor[metricData?.healthStatus]}
                   inSummaryBar={true}
-                  openModal={() => handleOpenModal(metricKey)}  
-              />
-              <MetricInfoModal 
-                  isOpen={openModalKey === metricKey} 
-                  onClose={handleCloseModal} 
-                  action = {onClose}
-                  category={category} 
+                  openModal={() => handleOpenModal(metricKey)}
+                />
+                <MetricInfoModal
+                  isOpen={openModalKey === metricKey}
+                  onClose={handleCloseModal}
+                  action={onClose}
+                  category={category}
                   metricKey={metricKey}
-                  latestValue={metricData?.value} 
-                  unit={formatSubscripts(metaData.unit)} 
+                  latestValue={metricData?.value}
+                  unit={formatSubscripts(metaData.unit)}
                   currentHealthStatus={metricData?.healthStatus}
                   dotColor={findDotColor[metricData?.healthStatus]}
-                  scale={metaData.scale} 
-                  information={metaData.information} 
+                  scale={metaData.scale}
+                  information={metaData.information}
                   tooltipSummary={metaData.tooltipSummary}
                   inSummaryBar={true}
-                  />
+                />
               </Fragment>
             )
           })}
@@ -104,4 +96,3 @@ export default function LatestValuesBar(props: LatestValueBarProps) {
     </Card>
   )
 }
-

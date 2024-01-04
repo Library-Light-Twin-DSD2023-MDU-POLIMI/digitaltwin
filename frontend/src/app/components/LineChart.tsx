@@ -15,12 +15,6 @@ import { LightingAssetTimeSeriesData } from '../../utils/typeDefs'
 import { getNestedProperty } from '../digitalTwin/page'
 import { useEffect } from 'react'
 
-
-
-
-
-
-
 ChartJS.register(
   CategoryScale, // x
   LinearScale, // y
@@ -30,42 +24,32 @@ ChartJS.register(
 )
 
 type LineChartProps = {
-  data: LightingAssetTimeSeriesData[]; 
-  categoryKey: string; // e.g., "illuminance", "glare", ..
-  metricKey: string; // e.g., "maintainedAverage", ..
-};
+  data: LightingAssetTimeSeriesData[]
+  categoryKey: string // e.g., "illuminance", "glare", ..
+  metricKey: string // e.g., "maintainedAverage", ..
+}
 
+const isBrowser = typeof window !== 'undefined'
+const isDarkTheme =
+  isBrowser && window.matchMedia('(prefers-color-scheme: dark)').matches
+const textColor = isDarkTheme ? '#ffffff' : '#000000'
 
-const isBrowser = typeof window !== 'undefined';
-const isDarkTheme = isBrowser && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const textColor = isDarkTheme ? '#ffffff' : '#000000'; 
-
-
-
-
-
-
-
-
-export default function LineChart(props: LineChartProps){  
-
+export default function LineChart(props: LineChartProps) {
   //TODO: ensure the reload does not refetch data
   useEffect(() => {
     const handleChanges = () => {
-      window.location.reload();
-    };
-    const themeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    themeWatcher.addEventListener('change', handleChanges);
-    window.addEventListener('resize', handleChanges);
+      window.location.reload()
+    }
+    const themeWatcher = window.matchMedia('(prefers-color-scheme: dark)')
+
+    themeWatcher.addEventListener('change', handleChanges)
+    window.addEventListener('resize', handleChanges)
 
     return () => {
-      themeWatcher.removeEventListener('change', handleChanges);
-      window.removeEventListener('resize', handleChanges);
-    };
-  }, []);
-
-
+      themeWatcher.removeEventListener('change', handleChanges)
+      window.removeEventListener('resize', handleChanges)
+    }
+  }, [])
 
   return (
     <div className="w-full text-center">
@@ -75,7 +59,7 @@ export default function LineChart(props: LineChartProps){
 
       <div>
         <Line
-          id={props.metricKey + "LineChart"}
+          id={props.metricKey + 'LineChart'}
           data={{
             labels: props.data.map(entry =>
               formatDateTimestamp(entry.timestamp)
@@ -119,17 +103,17 @@ export default function LineChart(props: LineChartProps){
             },
             scales: {
               y: {
-                  ticks: {
-                      color: textColor 
-                  }
+                ticks: {
+                  color: textColor,
+                },
               },
               x: {
-                  ticks: {
-                      color: textColor 
-                  }
-              }
-          }
-          }} 
+                ticks: {
+                  color: textColor,
+                },
+              },
+            },
+          }}
         />
       </div>
     </div>

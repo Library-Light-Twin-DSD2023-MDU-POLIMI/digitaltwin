@@ -1,6 +1,12 @@
 'use client'
 
-import { Card, CardBody, Select, SelectItem, useDisclosure } from '@nextui-org/react'
+import {
+  Card,
+  CardBody,
+  Select,
+  SelectItem,
+  useDisclosure,
+} from '@nextui-org/react'
 
 import sampleData from '../../utils/sampleData.json'
 import metricData from '../../utils/sampleMetricMetaData.json'
@@ -54,22 +60,20 @@ export function getNestedProperty(obj: any, keys: string[]): any {
   return keys.reduce((acc, key) => acc?.[key], obj)
 }
 
-
-
 //TODO: make selects trigger queries to the DB
 
 export default function DigitalTwin() {
-  const [openModalKey, setOpenModalKey] = useState<string | null>(null);
-  const { onClose } = useDisclosure();
+  const [openModalKey, setOpenModalKey] = useState<string | null>(null)
+  const { onClose } = useDisclosure()
 
   const handleOpenModal = (key: string) => {
-    setOpenModalKey(key);
-  };
+    setOpenModalKey(key)
+  }
 
   const handleCloseModal = () => {
-    setOpenModalKey(null);
-  };
-  
+    setOpenModalKey(null)
+  }
+
   return (
     <div className="px-10 flex flex-col gap-4 rounded-lg w-7/9 h-full">
       <LightingAssetHeader />
@@ -141,11 +145,7 @@ export default function DigitalTwin() {
                         ? customFormatter(metricKey)
                         : ''
                     } 
-                            ${
-                                category
-                                ? camelToTitleCase(category)
-                                : category
-                            }
+                            ${category ? camelToTitleCase(category) : category}
                         `}
                     tooltipContent={
                       metaData.tooltipSummary +
@@ -158,10 +158,10 @@ export default function DigitalTwin() {
                         : ''
                     } 
                             ${
-                                category
+                              category
                                 ? category === 'colorTemperature'
-                                    ? 'Color Temp'
-                                    : category === 'photobiologicalSafety'
+                                  ? 'Color Temp'
+                                  : category === 'photobiologicalSafety'
                                     ? 'Photo safety'
                                     : camelToTitleCase(category)
                                 : category
@@ -171,20 +171,20 @@ export default function DigitalTwin() {
                     latestValueUnit={formatSubscripts(metaData.unit)}
                     dotColor={findDotColor[metricData?.healthStatus]} // Object.keys(metaData.scale).length
                     inSummaryBar={false}
-                    openModal={() => handleOpenModal(metricKey)} 
+                    openModal={() => handleOpenModal(metricKey)}
                   />
-                    <MetricInfoModal 
-                    isOpen={openModalKey === metricKey} 
-                    onClose={handleCloseModal} 
-                    action = {onClose}
-                    category={category} 
+                  <MetricInfoModal
+                    isOpen={openModalKey === metricKey}
+                    onClose={handleCloseModal}
+                    action={onClose}
+                    category={category}
                     metricKey={metricKey}
-                    latestValue={metricData?.value} 
-                    unit={metaData.unit} 
+                    latestValue={metricData?.value}
+                    unit={metaData.unit}
                     currentHealthStatus={metricData?.healthStatus}
                     dotColor={findDotColor[metricData?.healthStatus]}
-                    scale={metaData.scale} 
-                    information={metaData.information} 
+                    scale={metaData.scale}
+                    information={metaData.information}
                     tooltipSummary={metaData.tooltipSummary}
                     inSummaryBar={false}
                   />

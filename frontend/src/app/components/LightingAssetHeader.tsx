@@ -1,4 +1,3 @@
-
 import React from 'react'
 import LightingAssetActions from './LightingAssetActions'
 import StatusSummary from './StatusSummary'
