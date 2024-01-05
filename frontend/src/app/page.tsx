@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 
 import * as userData from './assets.json'
 import * as digitalTwin from './digitalTwin.json'
-import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
+import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon'
+import PlusIcon from '@heroicons/react/24/solid/PlusIcon'
 import { Button, Input, Select, SelectItem } from '@nextui-org/react'
 import AddTwin from './components/AddTwin'
 import DigitalTwin from './components/DigitalTwin'
@@ -93,6 +94,7 @@ const Home: React.FC = () => {
           <Input
             placeholder="Search"
             className="max-w-xs"
+            data-testid="search-input"
             onChange={handleSearchChange}
             startContent={<MagnifyingGlassIcon className="h-7 w-7" />}
           />
