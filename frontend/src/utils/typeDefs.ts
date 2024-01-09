@@ -160,6 +160,27 @@ export type MetricMetaData = {
   }
 }
 
+export type AddLightingAssetInput = {
+    uid: string // Unique identifier for the asset
+    currentStatus: string // Values: "good", "warning", "broken"
+    predictiveStatus: {
+        status: string // Values: "okay", "warning"
+        predictedTime: Date // How far in the future it predicts
+    }
+    type: string // Values: "LED" | "Other"
+    cilLevel: number // 1 | 2
+    location : {
+        floor: number // Floor where light is located
+        section: string // A1 | D4 | E6
+        area: string // e.g. News paper area
+    }
+  }
+
+  export type RemoveLightingAssetInput = {
+    uid: string
+  }
+
+
 /* "energy": {
   "unit": "Watt",
   "information": "long - to go in Modal",
