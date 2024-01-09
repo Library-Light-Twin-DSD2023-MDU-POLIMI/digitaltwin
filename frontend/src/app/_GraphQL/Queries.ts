@@ -60,30 +60,95 @@ export const GET_LIGHTING_ASSETS = gql`
 `;
 
 export const GET_LIGHTING_ASSET_TIME_SERIES_DATA = gql`
-  query GetLightingAssetTimeSeriesData($assetId: ID!, $startTime: String!, $endTime: String!, $thresholds: TimeSeriesDataThresholds) {
-    getLightingAssetTimeSeriesData(assetId: $assetId, startTime: $startTime, endTime: $endTime, thresholds: $thresholds) {
+  query GetLightingAssetTimeSeriesData(
+    $assetId: ID!, 
+    $startTime: String!, 
+    $endTime: String!, 
+    $thresholds: TimeSeriesDataThresholds
+  ) {
+    getLightingAssetTimeSeriesData(
+      assetId: $assetId, 
+      startTime: $startTime, 
+      endTime: $endTime, 
+      thresholds: $thresholds
+    ) {
       timestamp
-      assetId
       power {
         WATT {
           value
           healthStatus
         }
       }
-      // ... other fields as needed
+      illuminance {
+        maintainedAverage {
+          value
+          healthStatus
+        }
+        uniformityRatio {
+          value
+          healthStatus
+        }
+      }
+      glare {
+        UGR {
+          value
+          healthStatus
+        }
+      }
+      colorRendering {
+        CRI {
+          value
+          healthStatus
+        }
+      }
+      colorTemperature {
+        CCT {
+          value
+          healthStatus
+        }
+        Duv {
+          value
+          healthStatus
+        }
+      }
+      flicker {
+        SVM {
+          value
+          healthStatus
+        }
+      }
+      colorPreference {
+        PVF {
+          value
+          healthStatus
+        }
+      }
+      photobiologicalSafety {
+        UV {
+          value
+          healthStatus
+        }
+      }
     }
   }
 `;
+
 
 export const GET_AVERAGE_LIGHTING_ASSET_DATA = gql`
   query GetAverageLightingAssetData($assetId: ID!, $startTime: String!, $endTime: String!) {
     getAverageLightingAssetData(assetId: $assetId, startTime: $startTime, endTime: $endTime) {
       timestamp
       averageIlluminance
-      // ... other fields as needed
+      averageGlare
+      averageColorRendering
+      averageColorTemperature
+      averageFlicker
+      averageColorPreference
+      averagePhotobiologicalSafety
     }
   }
 `;
+
 
 export const GET_METRICS = gql`
   query GetMetrics {
@@ -127,7 +192,7 @@ export const GET_WORK_ORDER = gql`
       _id
       workOrderID
       lightingAssetID
-      type
+      workOrderType
       workOrderStatus
       description
       comment
@@ -145,11 +210,11 @@ export const GET_WORK_ORDER = gql`
 
 export const GET_WORK_ORDERS = gql`
   query GetWorkOrders {
-    workOrders {
+    workOrder {
       _id
       workOrderID
       lightingAssetID
-      type
+      workOrdertype
       workOrderStatus
       description
       comment

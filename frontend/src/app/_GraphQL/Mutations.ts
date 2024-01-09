@@ -11,12 +11,12 @@ export const ADD_LIGHTING_ASSET = gql`
         predictedTime
       }
       type
+      cilLevel 
       location {
         floor
         section
         area
       }
-      cilLevel
     }
   }
 `;
