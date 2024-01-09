@@ -3,6 +3,20 @@ import LightingAssetActions from './LightingAssetActions'
 import StatusSummary from './StatusSummary'
 
 //TODO: add props, add missing imports
+interface Asset {
+  uid: string
+  currentStatus: string
+  predictiveStatus: {
+    status: string
+    predictedTime: number
+  }
+  location: {
+    floor: number
+    section: string
+    area: string
+  }
+  cilLevel: number
+}
 
 export default function LightingAssetHeader() {
   return (
@@ -14,10 +28,10 @@ export default function LightingAssetHeader() {
               className="md:text-4xl text-2xl font-bold"
               id="digital_twin_name"
             >
-              Childrens' Area - Low Table
+              Reception Area - North Wing
             </p>
             <p className="text-lg font-italic" id="located_floor">
-              1st Floor
+              5th Floor
             </p>
           </div>
           <LightingAssetActions />
