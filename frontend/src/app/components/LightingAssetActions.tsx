@@ -1,3 +1,5 @@
+import { RemoveLightingAssetInput } from '@/utils/typeDefs';
+import { useMutation } from '@apollo/client';
 import {
   AdjustmentsHorizontalIcon,
   Cog6ToothIcon,
@@ -6,8 +8,27 @@ import {
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline'
 import { Button, ButtonGroup, Tooltip } from '@nextui-org/react'
+import { REMOVE_LIGHTING_ASSET } from '../_graphQL/Mutations';
 
 export default function LightingAssetActions() {
+    //TODO - Add in onclick in trashIcon button, when Backend works.
+  //Create removeDigitalTwin mutation
+  const [removeDigitalTwin] = useMutation(REMOVE_LIGHTING_ASSET);
+    
+  //Handle removeDigitalTwin
+  const deleteDigitalTwin = (uid: string) => {
+    {
+      let input: RemoveLightingAssetInput = {
+        uid: uid
+      };
+      removeDigitalTwin({
+        variables: {
+          input: input,
+        },
+      });
+    }
+
+  };
   return (
     <ButtonGroup size="sm" className="grid lg:grid-cols-5 md:grid-cols-2">
       <div className="px-1">
