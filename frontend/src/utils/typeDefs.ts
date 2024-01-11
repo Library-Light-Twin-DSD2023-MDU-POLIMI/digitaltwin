@@ -86,9 +86,9 @@ export type MetricMetaData = {
   UGR: {
     unit: string
     scale: {
-      perfect: string //4
-      good: string //3
-      mid: string //2
+      good: string //4
+      mid: string //3
+      tooLow2: string //2
       tooLow: string //1
     }
     information: string
@@ -159,6 +159,27 @@ export type MetricMetaData = {
     tooltipSummary: string
   }
 }
+
+export type AddLightingAssetInput = {
+    uid: string // Unique identifier for the asset
+    currentStatus: string // Values: "good", "warning", "broken"
+    predictiveStatus: {
+        status: string // Values: "okay", "warning"
+        predictedTime: Date // How far in the future it predicts
+    }
+    type: string // Values: "LED" | "Other"
+    cilLevel: number // 1 | 2
+    location : {
+        floor: number // Floor where light is located
+        section: string // A1 | D4 | E6
+        area: string // e.g. News paper area
+    }
+  }
+
+  export type RemoveLightingAssetInput = {
+    uid: string
+  }
+
 
 /* "energy": {
   "unit": "Watt",

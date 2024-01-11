@@ -25,10 +25,10 @@ export default function Sidebar() {
   const path = getRoutingPath()
   const sidebarOptions = [
     {
-      name: 'Asset Manager',
-      href: '/assetManager',
+      name: 'Dashboard',
+      href: '/',
       icon: LightBulbIcon,
-      current: path === '/assetManager' ? true : false,
+      current: path === '/' ? true : false,
     },
     {
       name: 'Analytic Reports',

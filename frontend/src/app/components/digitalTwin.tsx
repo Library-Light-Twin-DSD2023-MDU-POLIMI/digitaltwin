@@ -1,7 +1,14 @@
 'use client'
 
-import { Card, CardBody, Chip } from '@nextui-org/react'
-import React from 'react'
+import React, { useState } from 'react'
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Tooltip,
+} from '@nextui-org/react'
+import { useParams, useRouter } from 'next/navigation'
 
 interface Asset {
   uid: string
@@ -15,196 +22,57 @@ interface Asset {
     section: string
     area: string
   }
-}
-
-interface DigitalTwin {
-  timestamp: string
-  assetId: string
-  illuminance: {
-    maintainedAverage: number
-    uniformityRatio: number
-  }
-  glare: {
-    UGR: number
-  }
-  colorRendering: {
-    CRI: number
-  }
-  colorTemperature: {
-    CCT: number
-    Duv: number
-  }
-  flicker: {
-    SVM: number
-  }
-  colorPreference: {
-    PVF: number
-  }
-  photobiologicalSafety: {
-    UV: number
-  }
+  cilLevel: number
 }
 
 interface AssetProps {
   asset: Asset
-  digitalTwin: DigitalTwin
 }
 
-const DigitalTwin: React.FC<AssetProps> = ({ asset, digitalTwin }) => {
+const DigitalTwin: React.FC<AssetProps> = ({ asset }) => {
+    const assetID = asset.uid; 
+    const router = useRouter();
+
+    const sendToAssetManager = () => {
+      router.push(`/assetManager/${assetID}`);
+    }
+    
+
   return (
-    <>
       <Card
-        style={{
-          background: '#E8E8E8',
-          marginBottom: '30px',
-          marginRight: '50px',
+      onClick={sendToAssetManager}
+      style={{
+        background: '#083344',
+        marginBottom: '30px',
+        marginRight: '50px',
+      }}
+    >
+      <CardHeader>
+        <h6 className="text-2xl leading-tight mr-[375px]">
+          {asset.location.area} Area - {asset.location.section}
+        </h6>
+    </CardHeader>
+    <CardBody style={{
+      display: 'flex',
+      flexDirection: 'column',
+      marginBottom: '10px',
+    }}>
+        <p className="text-xl italic mt-5">Floor: {asset.location.floor}</p>
+        <div className="flex flex-row mt-5">
+          <p className="text-l mr-5">Current Status: {asset.currentStatus}</p>
+          <p className="text-l mr-5">Predicted Status: {asset.predictiveStatus.status}</p>
+          <p className="text-l mr-5">CilLevel: {asset.cilLevel}</p>
+        </div>
+        <Button style={{
+          backgroundColor: '#0891b2',
+          marginTop: '20px',
         }}
-      >
-        <CardBody>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              marginBottom: '10px',
-            }}
-          >
-            <h6 className="text-2xl leading-tight">
-              {asset.location.area} Area - {asset.location.section}
-            </h6>
-            <p className="text-l italic">{asset.location.floor} Floor</p>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                marginTop: '10px',
-              }}
-            >
-              <Chip color="success" className="w-40" variant="dot">
-                Current Status
-              </Chip>
-              <Chip color="warning" className="w-40 " variant="dot">
-                Predicted Status
-              </Chip>
-            </div>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p className="py-1 text-xs text-center">LUX</p>
-              <var className="text-center">
-                {digitalTwin.illuminance.uniformityRatio}
-              </var>
-              <Chip color="warning" variant="dot">
-                Illuminance
-              </Chip>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p style={{ color: '#E8E8E8' }}>.</p>
-              <var className="text-center">{digitalTwin.glare.UGR}</var>
-              <Chip color="warning" variant="dot">
-                Glare
-              </Chip>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p className="py-1 text-xs text-center">CRI</p>
-              <var className="text-center">
-                {digitalTwin.colorRendering.CRI}
-              </var>
-              <Chip color="success" variant="dot">
-                Color Rendering
-              </Chip>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p className="py-1 text-xs text-center">K</p>
-              <var className="text-center">
-                {digitalTwin.colorTemperature.Duv}
-              </var>
-              <Chip color="warning" variant="dot">
-                Color Temperature
-              </Chip>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p className="py-1 text-xs text-center">Hz</p>
-              <var className="text-center">{digitalTwin.flicker.SVM}</var>
-              <Chip color="warning" variant="dot">
-                Flicker
-              </Chip>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p style={{ color: '#E8E8E8' }}>.</p>
-              <var className="text-center">
-                {digitalTwin.colorPreference.PVF}
-              </var>
-              <Chip color="warning" variant="dot">
-                Color Preference
-              </Chip>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '10px',
-              }}
-            >
-              <p style={{ color: '#E8E8E8' }}>.</p>
-              <var className="text-center">
-                {digitalTwin.photobiologicalSafety.UV}
-              </var>
-              <Chip color="warning" variant="dot">
-                Photobiological Safety
-              </Chip>
-            </div>
-          </div>
-        </CardBody>
+          onClick={sendToAssetManager}>ASSET MANAGER</Button>
+      </CardBody>
       </Card>
-    </>
+      
   )
 }
+
 
 export default DigitalTwin
