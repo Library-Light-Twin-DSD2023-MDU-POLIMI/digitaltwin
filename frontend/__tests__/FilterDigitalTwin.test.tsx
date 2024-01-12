@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import FilterDigitalTwin from '../src/app/components/FilterDigitalTwin'
+import FilterDigitalTwin from '@/app/components/filterDigitalTwin'
 
 describe('FilterDigitalTwin Component Tests', () => {
   test('renders FilterDigitalTwin component', () => {

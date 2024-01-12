@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client'
 
 export const ADD_LIGHTING_ASSET = gql`
   mutation AddLightingAsset($input: AddLightingAssetInput!) {
@@ -11,7 +11,7 @@ export const ADD_LIGHTING_ASSET = gql`
         predictedTime
       }
       type
-      cilLevel 
+      cilLevel
       location {
         floor
         section
@@ -19,7 +19,7 @@ export const ADD_LIGHTING_ASSET = gql`
       }
     }
   }
-`;
+`
 
 export const UPDATE_LIGHTING_ASSET = gql`
   mutation UpdateLightingAsset($id: ID!, $input: UpdateLightingAssetInput!) {
@@ -40,13 +40,13 @@ export const UPDATE_LIGHTING_ASSET = gql`
       cilLevel
     }
   }
-`;
+`
 
 export const REMOVE_LIGHTING_ASSET = gql`
   mutation RemoveLightingAsset($id: ID!) {
     removeLightingAsset(id: $id)
   }
-`;
+`
 
 export const ADD_WORK_ORDER = gql`
   mutation AddWorkOrder($input: AddWorkOrderInput!) {
@@ -68,7 +68,7 @@ export const ADD_WORK_ORDER = gql`
       executedDate
     }
   }
-`;
+`
 
 export const UPDATE_WORK_ORDER = gql`
   mutation UpdateWorkOrder($id: ID!, $input: UpdateWorkOrderInput!) {
@@ -90,13 +90,13 @@ export const UPDATE_WORK_ORDER = gql`
       executedDate
     }
   }
-`;
+`
 
 export const REMOVE_WORK_ORDER = gql`
   mutation RemoveWorkOrder($id: ID!) {
     removeWorkOrder(id: $id)
   }
-`;
+`
 
 export const ADD_METRIC = gql`
   mutation AddMetric($input: MetricMetaDataInput!) {
@@ -114,7 +114,7 @@ export const ADD_METRIC = gql`
       tooltipSummary
     }
   }
-`;
+`
 
 export const UPDATE_METRIC = gql`
   mutation UpdateMetric($id: ID!, $input: MetricMetaDataInput!) {
@@ -132,7 +132,7 @@ export const UPDATE_METRIC = gql`
       tooltipSummary
     }
   }
-`;
+`
 
 export const REMOVE_METRIC = gql`
   mutation RemoveMetric($id: ID!) {
@@ -140,4 +140,4 @@ export const REMOVE_METRIC = gql`
       metric
     }
   }
-`;
+`

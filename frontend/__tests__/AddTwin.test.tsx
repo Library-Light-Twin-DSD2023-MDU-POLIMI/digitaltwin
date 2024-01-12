@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import AddTwin from '../src/app/components/AddTwin'
+import AddTwin from '../src/app/components/addTwin'
 
 describe('AddTwin Component Tests', () => {
   test('renders AddTwin component', () => {

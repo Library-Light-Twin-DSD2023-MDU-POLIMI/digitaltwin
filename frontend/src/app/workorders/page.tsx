@@ -2,8 +2,7 @@
 
 import React from 'react'
 import { Card } from '@nextui-org/react'
-import WorkorderTable from '../components/WorkorderTable'
-
+import WorkorderTable from '../components/workorderTable'
 export default function Workorders() {
   return (
     <div className="flex w-full flex-col bg-primary-200 px-4 py-4">
