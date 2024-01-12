@@ -1,30 +1,28 @@
 'use client'
 import './globals.css'
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { createApolloClient } from "./api/apolloClient"; 
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { createApolloClient } from './api/apolloClient'
 import Providers from './providers'
 import Header from './components/header'
 import Sidebar from './components/sidebar'
+import { ApolloWrapper } from './api/apollo-provider'
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <ApolloWrapper>
-      <html lang='en'>
+      <html lang="en">
         <body>
-      <Providers> 
-        <Header />
-        <Sidebar />
-        <main>
-          {children}
-        </main>
-      </Providers>
-      </body>
+          <Providers>
+            <Header />
+            <Sidebar />
+            <main>{children}</main>
+          </Providers>
+        </body>
       </html>
     </ApolloWrapper>
-  );
+  )
 }

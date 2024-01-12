@@ -64,75 +64,78 @@ interface DigitalTwinData {
 }
 
 const Home: React.FC = () => {
-
-  
   //Popup functionality for digital twin modal.
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const onOpen = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const onOpen = () => setIsOpen(true)
+  const onClose = () => setIsOpen(false)
 
   //Create addDigital Twin mutation
-  const [addDigitalTwin] = useMutation(ADD_LIGHTING_ASSET);
-  
-  
+  const [addDigitalTwin] = useMutation(ADD_LIGHTING_ASSET)
+
   //Handle add digital twin
-  const onAddTwin = (uid: string, currentStatus: string, predictiveStatus: {status: string, predictedTime: Date}, type: string, cilLevel: number , location: {floor: number, section: string, area: string}) => {
-     {
+  const onAddTwin = (
+    uid: string,
+    currentStatus: string,
+    predictiveStatus: { status: string; predictedTime: Date },
+    type: string,
+    cilLevel: number,
+    location: { floor: number; section: string; area: string }
+  ) => {
+    {
       let input: AddLightingAssetInput = {
-        uid: uid, 
+        uid: uid,
         currentStatus: currentStatus,
         predictiveStatus: {
           status: predictiveStatus.status,
-          predictedTime: predictiveStatus.predictedTime
+          predictedTime: predictiveStatus.predictedTime,
         },
         type: type,
         cilLevel: cilLevel,
         location: {
           floor: location.floor,
           section: location.section,
-          area: location.area
-        }
-      };
+          area: location.area,
+        },
+      }
       addDigitalTwin({
         variables: {
           input: input,
         },
-      });
+      })
     }
-  };
-  
+  }
+
   const { loading, error, data } = useQuery(GET_LIGHTING_ASSETS, {
     variables: {
-      "input": {
-        "limit": 0,
-        "offset": 0,
-        "searchText": ""
+      input: {
+        limit: 0,
+        offset: 0,
+        searchText: '',
       },
-      "filter": {
-        "currentStatus": null,
-        "lightingType": null,
-        "location": {
-          "area": "",
-          "floor": 0,
-          "section": ""
+      filter: {
+        currentStatus: null,
+        lightingType: null,
+        location: {
+          area: '',
+          floor: 0,
+          section: '',
         },
-        "predictedStatus": null
-      }
-    }
-  });
-  
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-  
-    // Use data to render yor UI
-    console.log(JSON.stringify(data) + 'assets');
-  
- /*  const [searchQuery, setSearchQuery] = useState('') */
+        predictedStatus: null,
+      },
+    },
+  })
 
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+
+  // Use data to render yor UI
+  console.log(JSON.stringify(data) + 'assets')
+
+  /*  const [searchQuery, setSearchQuery] = useState('') */
 
   const digitaltwindata: DigitalTwinData = digitalTwin
 
- /*  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  /*  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value.toLowerCase())
   }
  */
@@ -150,15 +153,15 @@ const Home: React.FC = () => {
             marginRight: '60px',
             marginBottom: '40px',
             width: '400px',
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
           <Input
             placeholder="Search"
             className="max-w-xs"
-          /*   onChange={handleSearchChange} */
-            startContent={<MagnifyingGlassIcon className="h-7 w-7" 
-            />} />
+            /*   onChange={handleSearchChange} */
+            startContent={<MagnifyingGlassIcon className="h-7 w-7" />}
+          />
           <Button
             isIconOnly
             style={{ backgroundColor: '#07C075', color: 'white' }}
@@ -171,21 +174,24 @@ const Home: React.FC = () => {
             onOpen={onOpen}
             isOpen={isOpen}
             onClose={onClose}
-            onAddTwin={onAddTwin} />
+            onAddTwin={onAddTwin}
+          />
         </div>
-        <div style={{
+        <div
+          style={{
             marginLeft: '50px',
             marginTop: '50px',
             marginRight: '60px',
             marginBottom: '40px',
             width: '800px',
-          }}>
-
-      {data.lightingAssets.map((asset: Asset, index: number) => (
-        <DigitalTwin asset={asset} />
-      ))}
-    </div>
-      </div></>
+          }}
+        >
+          {data.lightingAssets.map((asset: Asset, index: number) => (
+            <DigitalTwin asset={asset} />
+          ))}
+        </div>
+      </div>
+    </>
   )
 }
 
