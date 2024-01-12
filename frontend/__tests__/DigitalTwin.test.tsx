@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import DigitalTwin from '@/app/components/DigitalTwin'
+import DigitalTwin from '@/app/components/digitalTwin'
 
 describe('DigitalTwin', () => {
   test('renders DigitalTwin component without crashing', () => {

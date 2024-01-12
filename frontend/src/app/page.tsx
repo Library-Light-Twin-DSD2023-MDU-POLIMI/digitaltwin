@@ -8,10 +8,9 @@ import { MagnifyingGlassIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { Button, Input } from '@nextui-org/react'
 import AddTwinModal from './components/AddTwinModal'
 import { useMutation, useQuery } from '@apollo/client'
-import { ADD_LIGHTING_ASSET } from './_graphQL/Mutations'
+import { ADD_LIGHTING_ASSET } from './_GraphQL/Mutations'
 import { AddLightingAssetInput } from '@/utils/typeDefs'
-import {GET_LIGHTING_ASSETS} from './_graphQL/Queries'
-
+import { GET_LIGHTING_ASSETS } from './_GraphQL/Queries'
 
 interface Asset {
   uid: string

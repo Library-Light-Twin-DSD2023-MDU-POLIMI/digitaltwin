@@ -3,7 +3,7 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import ReportWorkorder from '../src/app/components/ReportWorkorder'
+import ReportWorkorder from '@/app/components/ReportWorkorder'
 
 describe('ReportWorkorder Component Tests', () => {
   test('Ensure users can create and send work orders directly from the system', async () => {

@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import WorkorderTable, {
   capitalize,
-} from '../src/app/components/WorkorderTable'
+} from '@/app/components/workorderTable'
 
 describe('WorkorderTable Component Tests', () => {
   test('capitalize function works correctly', () => {

@@ -4,9 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { createApolloClient } from "./api/apolloClient"; 
 import Providers from './providers'
 import Header from './components/header'
-import Sidebar from './components/Sidebar'
-import { ApolloWrapper } from './api/apollo-provider';
-
+import Sidebar from './components/sidebar'
 
 export default function RootLayout({
   children
