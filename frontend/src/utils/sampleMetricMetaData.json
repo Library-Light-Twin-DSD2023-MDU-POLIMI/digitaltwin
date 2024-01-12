@@ -1,0 +1,100 @@
+{
+  "maintainedAverage": {
+    "unit": "E_m",
+    "scale": {
+      "tooHigh": "5",
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Illuminance level lighting installations aim to provide.",
+    "tooltipSummary": "Illuminance level lighting installations aim to provide."
+  },
+  "uniformityRatio": {
+    "unit": "U_0",
+    "scale": {
+      "tooHigh": "5",
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Ratio of minimum to average or maximum illuminance.",
+    "tooltipSummary": "Ratio of minimum to average or maximum illuminance."
+  },
+  "UGR": {
+    "unit": "UGR_L",
+    "scale": {
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Standard SS-EN 12565-1, ljus och rum. Variables between 10(best)-30(worst). Assumption: Glare needs to be avoided to ensure a good working environment. A glare rating lower than standard is desired. ",
+    "tooltipSummary": "Unified Glare Rating (UGR) - Numerical measure of glare in a particular environment."
+  },
+  "CRI": {
+    "unit": "R_9",
+    "scale": {
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Measure of light source's ability to reveal colors accurately.",
+    "tooltipSummary": "Measure of light source's ability to reveal colors accurately."
+  },
+  "CCT": {
+    "unit": "K",
+    "scale": {
+      "perfect": "5",
+      "mid": "3",
+      "tooLow": "1"
+    },
+    "information": "Color appearance of light emitted by a lamp.",
+    "tooltipSummary": "Color appearance of light emitted by a lamp."
+  },
+  "Duv": {
+    "unit": "K",
+    "scale": {
+      "perfect": "5",
+      "mid": "3",
+      "tooLow": "1"
+    },
+    "information": "Deviation from the black-body line in color space.",
+    "tooltipSummary": "Deviation from the black-body line in color space."
+  },
+  "SVM": {
+    "unit": "Hz",
+    "scale": {
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "The Hz corresponds to Stroboscopic Visibility Measure (SVM) - a measure of visibility of stroboscopic effects.",
+    "tooltipSummary": "Flicker. Stroboscopic Visibility Measure (SVM) - Measure of visibility of stroboscopic effects."
+  },
+  "PVF": {
+    "unit": "",
+    "scale": {
+      "tooHigh": "5",
+      "perfect": "4",
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Color Preference.",
+    "tooltipSummary": "Color Preference."
+  },
+  "UV": {
+    "unit": "",
+    "scale": {
+      "good": "3",
+      "mid": "2",
+      "tooLow": "1"
+    },
+    "information": "Ultra Violet radiation",
+    "tooltipSummary": "Ultra Violet radiation."
+  }
+}

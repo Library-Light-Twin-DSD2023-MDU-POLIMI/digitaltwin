@@ -1,5 +1,3 @@
 export default function analyticsReport() {
-    return <div>
-       Analytics Report
-    </div>
+  return <div>Analytics Report</div>
 }

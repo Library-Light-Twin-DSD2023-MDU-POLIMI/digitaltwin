@@ -1,0 +1,65 @@
+{
+  "columns": [
+    { "name": "ID", "uid": "id" },
+    { "name": "WORK ORDER ID", "uid": "workorderId" },
+    { "name": "ASSET ID", "uid": "assetId" },
+    { "name": "FLOOR", "uid": "floor" },
+    { "name": "SECTION", "uid": "section" },
+    { "name": "DATE OF MAINTENENCE", "uid": "date" },
+    { "name": "STATUS", "uid": "status" },
+    { "name": "ACTIONS", "uid": "actions" }
+  ],
+  "statusOptions": [
+    { "name": "Scheduled", "uid": "scheduled" },
+    { "name": "Compleated", "uid": "compleated" },
+    { "name": "Incompleate", "uid": "incompleate" }
+  ],
+  "floorOptions": [
+    { "name": "1", "uid": "1" },
+    { "name": "2", "uid": "2" },
+    { "name": "3", "uid": "3" }
+  ],
+  "sectionOptions": [
+    { "name": "Children's Area", "uid": "children's area" },
+    { "name": "Lobby", "uid": "lobby" },
+    { "name": "Reading Area", "uid": "reading area" }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "workorderId": "WO 0001",
+      "assetId": "1234",
+      "status": "scheduled",
+      "date": "2023-12-05 10:00",
+      "floor": "1",
+      "section": "children's area"
+    },
+    {
+      "id": 2,
+      "workorderId": "WO 0002",
+      "assetId": "5678",
+      "status": "scheduled",
+      "date": "2023-12-06 10:00",
+      "floor": "1",
+      "section": "reading area"
+    },
+    {
+      "id": 3,
+      "workorderId": "WO 0003",
+      "assetId": "3478",
+      "status": "incompleate",
+      "date": "2023-12-01 10:00",
+      "floor": "2",
+      "section": "children's area"
+    },
+    {
+      "id": 4,
+      "workorderId": "WO 0004",
+      "assetId": "7890",
+      "status": "compleated",
+      "date": "2023-11-06 15:00",
+      "floor": "1",
+      "section": "lobby"
+    }
+  ]
+}

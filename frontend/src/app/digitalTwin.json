@@ -1,0 +1,85 @@
+{
+  "DigitalTwins": [
+    {
+      "timestamp": "2023-11-20T00:00:00Z",
+      "assetId": "id1",
+      "illuminance": {
+        "maintainedAverage": 50,
+        "uniformityRatio": 9
+      },
+      "glare": {
+        "UGR": 2
+      },
+      "colorRendering": {
+        "CRI": 103
+      },
+      "colorTemperature": {
+        "CCT": 5500,
+        "Duv": 50
+      },
+      "flicker": {
+        "SVM": 0.1
+      },
+      "colorPreference": {
+        "PVF": 90
+      },
+      "photobiologicalSafety": {
+        "UV": 1
+      }
+    },
+    {
+      "timestamp": "2023-11-20T00:00:00Z",
+      "assetId": "id2",
+      "illuminance": {
+        "maintainedAverage": 50,
+        "uniformityRatio": 5
+      },
+      "glare": {
+        "UGR": 6
+      },
+      "colorRendering": {
+        "CRI": 180
+      },
+      "colorTemperature": {
+        "CCT": 5500,
+        "Duv": 0
+      },
+      "flicker": {
+        "SVM": 0.2
+      },
+      "colorPreference": {
+        "PVF": 80
+      },
+      "photobiologicalSafety": {
+        "UV": 2
+      }
+    },
+    {
+      "timestamp": "2023-11-20T00:00:00Z",
+      "assetId": "id3",
+      "illuminance": {
+        "maintainedAverage": 50,
+        "uniformityRatio": 4
+      },
+      "glare": {
+        "UGR": 4
+      },
+      "colorRendering": {
+        "CRI": 170
+      },
+      "colorTemperature": {
+        "CCT": 5500,
+        "Duv": 0
+      },
+      "flicker": {
+        "SVM": 0.4
+      },
+      "colorPreference": {
+        "PVF": 85
+      },
+      "photobiologicalSafety": {
+        "UV": 3
+      }
+    }
+  ]
+}
